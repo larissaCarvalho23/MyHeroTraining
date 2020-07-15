@@ -3,5 +3,9 @@ package com.ifsp.MyHeroTraining.repository;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface CadastraUsuarioRepository extends JpaRepository<CadastroUsuario, Integer> {
+    Optional<CadastroUsuario> findByEmail(String email);
+
 }

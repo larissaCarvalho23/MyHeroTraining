@@ -1,4 +1,4 @@
-angular.module('myHeroTraining').controller('TreinoController',function ($scope, $http, myHeroTraining) {
+angular.module('myHeroTraining').controller('HomeController',function ($scope, $http, myHeroTraining) {
     $scope.fotos =[
         {url: 'https://i0.statig.com.br/bancodeimagens/54/ab/3d/54ab3dww9e6ktcnafkfdp4294.jpg'},
         {url:'https://sportlife.com.br/wp-content/uploads/2018/12/beneficios-do-abdominal.jpg'},
@@ -9,16 +9,13 @@ angular.module('myHeroTraining').controller('TreinoController',function ($scope,
         ];
   var carrega = function (){
       myHeroTraining.carregarTreinos().success(function (data) {
-          console.log(data)
           $scope.treinos = data;
       });
-
   };
   carrega()
 
     $scope.fotoPrincipal =
 
       {url:'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg'}
-
 
 });
