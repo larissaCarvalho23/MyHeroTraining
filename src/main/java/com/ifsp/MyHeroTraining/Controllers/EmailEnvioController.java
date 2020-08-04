@@ -24,7 +24,8 @@ import java.util.List;
 public class EmailEnvioController {
     @Autowired
     private EmailRepository emailRepository;
-        @GetMapping public List<EmailUsuario> listaUsuario(){
+        @GetMapping
+        public List<EmailUsuario> listaUsuario(){
         List<EmailUsuario> emailUsuarios = emailRepository.findAll();
         return emailUsuarios;
     }

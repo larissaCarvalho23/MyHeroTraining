@@ -1,0 +1,187 @@
+<html>
+<head>
+</head>
+<body>
+<div style="color:#000000; font-size: 25px; font-weight: normal" id="dday"></div>
+</body>
+</html>
+
+<head>
+    <script>
+        var centesimas = 0;
+        var segundos = 0;
+        var minutos = 0;
+        var horas = 0;
+        function inicio () {
+            control = setInterval(cronometro,10);
+            document.getElementById("inicio").disabled = true;
+            document.getElementById("parar").disabled = false;
+            document.getElementById("continuar").disabled = true;
+            document.getElementById("reinicio").disabled = false;
+        }
+        function parar () {
+            clearInterval(control);
+            document.getElementById("parar").disabled = true;
+            document.getElementById("continuar").disabled = false;
+        }
+        function reinicio () {
+            clearInterval(control);
+            centesimas = 0;
+            segundos = 0;
+            minutos = 0;
+            horas = 0;
+            Centesimas.innerHTML = ":00";
+            Segundos.innerHTML = ":00";
+            Minutos.innerHTML = ":00";
+            Horas.innerHTML = "00";
+            document.getElementById("inicio").disabled = false;
+            document.getElementById("parar").disabled = true;
+            document.getElementById("continuar").disabled = true;
+            document.getElementById("reinicio").disabled = true;
+        }
+        function cronometro () {
+            if (centesimas < 99) {
+                centesimas++;
+                if (centesimas < 10) { centesimas = "0"+centesimas }
+                Centesimas.innerHTML = ":"+centesimas;
+            }
+            if (centesimas == 99) {
+                centesimas = -1;
+            }
+            if (centesimas == 0) {
+                segundos ++;
+                if (segundos < 10) { segundos = "0"+segundos }
+                Segundos.innerHTML = ":"+segundos;
+            }
+            if (segundos == 59) {
+                segundos = -1;
+            }
+            if ( (centesimas == 0)&&(segundos == 0) ) {
+                minutos++;
+                if (minutos < 10) { minutos = "0"+minutos }
+                Minutos.innerHTML = ":"+minutos;
+            }
+            if (minutos == 59) {
+                minutos = -1;
+            }
+            if ( (centesimas == 0)&&(segundos == 0)&&(minutos == 0) ) {
+                horas ++;
+                if (horas < 10) { horas = "0"+horas }
+                Horas.innerHTML = horas;
+            }
+        }
+    </script>
+</head-->
+<div class="container">
+<div id="contador">
+    <div class="reloj" id="Horas">00</div>
+    <div class="reloj" id="Minutos">:00</div>
+    <div class="reloj" id="Segundos">:00</div>
+    <div class="reloj" id="Centesimas">:00</div>
+</div>
+<div id="botoes">
+    <input type="button" class="boton" id="inicio" value=" &#9658;" onclick="inicio();">
+    <input type="button" class="boton" id="parar" value=" &#8718;" onclick="parar();" disabled>
+    <input type="button" class="boton" id="continuar" value=" &#8634;" onclick="inicio();" disabled>
+    <input type="button" class="boton" id="reinicio" value=" &#8635;" onclick="reinicio();" disabled>
+</div>
+<img id="crono" src="img/cronometro.png" alt="cronometro" title="cronometro flat">
+
+
+</body>
+
+<html>
+<head>
+    <script>
+        var centesimas = 0;
+        var segundos = 0;
+        var minutos = 0;
+        var horas = 0;
+        function inicio () {
+            control = setInterval(cronometro,10);
+            document.getElementById("inicio").disabled = true;
+            document.getElementById("parar").disabled = false;
+            document.getElementById("continuar").disabled = true;
+            document.getElementById("reinicio").disabled = false;
+        }
+
+        function cronometro () {
+            if (centesimas < 99) {
+                centesimas++;
+                if (centesimas < 10) { centesimas = "0"+centesimas }
+                Centesimas.innerHTML = ":"+centesimas;
+            }
+            if (centesimas == 99) {
+                centesimas = -1;
+            }
+            if (centesimas == 0) {
+                segundos ++;
+                if (segundos < 10) { segundos = "0"+segundos }
+                Segundos.innerHTML = ":"+segundos;
+            }
+            if (segundos == 59) {
+                segundos = -1;
+            }
+            if ( (centesimas == 0)&&(segundos == 0) ) {
+                minutos++;
+                if (minutos < 10) { minutos = "0"+minutos }
+                Minutos.innerHTML = ":"+minutos;
+            }
+            if (minutos == 59) {
+                minutos = -1;
+            }
+            if ( (centesimas == 0)&&(segundos == 0)&&(minutos == 0) ) {
+                horas ++;
+                if (horas < 10) { horas = "0"+horas }
+                Horas.innerHTML = horas;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="contador">
+    <div class="reloj" id="Horas">00</div>
+    <div class="reloj" id="Minutos">:00</div>
+    <div class="reloj" id="Segundos">:00</div>
+    <div class="reloj" id="Centesimas">:00</div>
+</div>
+<div id="botoes">
+    <input type="button" class="boton" id="inicio" value=" &#9658;" onclick="inicio();">
+    <input type="button" class="boton" id="parar" value=" &#8718;" onclick="parar();" disabled>
+    <input type="button" class="boton" id="continuar" value=" &#8634;" onclick="inicio();" disabled>
+    <input type="button" class="boton" id="reinicio" value=" &#8635;" onclick="reinicio();" disabled>
+</div>
+<img id="crono" src="img/cronometro.png" alt="cronometro" title="cronometro flat">
+
+
+</body-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" media="screen" href="style.css" />
+    <script type="text/javascript">
+
+        var count = new Number();
+        var count = 6;
+
+        function start(){
+
+            if ((count - 1) >= 0){
+                count -= 1;
+                if (count == 0) {
+                    count = "Atualizado";
+                }
+                tempo.innerText=count;
+                setTimeout('start();', 1000);
+
+              }
+        }
+</script>
+</head>
+<body onload="start();">
+<div id="tempo" ></div>
+</body>
+
+</div>

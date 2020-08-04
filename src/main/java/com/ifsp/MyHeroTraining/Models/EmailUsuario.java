@@ -4,7 +4,7 @@ import javax.persistence.*;
 public class EmailUsuario {
     private String email;
      @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
     public EmailUsuario(String email) {
         this.email = email;
@@ -22,11 +22,11 @@ public class EmailUsuario {
     }
 
        public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
 }

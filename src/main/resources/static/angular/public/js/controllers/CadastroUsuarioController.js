@@ -1,6 +1,7 @@
 angular.module('myHeroTraining').controller('cadastroController',function ($scope,$route, cadastroService ) {
 $scope.model = {
     }
+
     $scope.salvar = function () {
       if($scope.formulario.$valid) {
       cadastroService.incluir($scope.model).success(function (data) {
@@ -9,9 +10,7 @@ $scope.model = {
              enviarEmail();
           }).error(function (data,status) {
                 alert("Email já cadastrado!");
-                    console.log(data)
-                    console.log(status)
-                  $route.reload();
+            $route.reload();
 
       });
             //fazer tratamento de erro caso não retorno com sucess
