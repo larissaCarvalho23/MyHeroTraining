@@ -8,8 +8,10 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
         {url:'https://conteudo.imguol.com.br/c/entretenimento/a7/2016/05/30/homem-fazendo-flexao-1464620034199_v2_1920x1279.jpg'},
 
         ];
+    $scope.model = {
+    }
 
- $scope.exibirSemLogin = function () {
+  $scope.exibirSemLogin = function () {
         if(localStorage.getItem('Bearer') == null){
             return true;
         }
@@ -19,16 +21,19 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
             return true;
         }
     }
-     var carrega = function (){
-      myHeroTraining.carregarTreinos().success(function (data) {
-          $scope.treinos = data;
+   var carrega = function (){
+        var pagina = 0;
+        var qnt =1;
+      myHeroTraining.carregarTreinos(pagina,qnt).success(function (data) {
+          $scope.treinos = data.content;
       });
+
   };
   $scope.logout = function(){
     localStorage.clear();
     $location.path('/login');
   }
-  carrega()
+    carrega()
     $scope.fotoPrincipal =
       {url:'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg'}
 });

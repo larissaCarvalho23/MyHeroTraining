@@ -27,7 +27,7 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
             controller: 'login-controller'
 
         });
-        $routeProvider.when('/treinos/id', {
+        $routeProvider.when('/treinos/:id', {
             templateUrl: 'angular/public/view/treino.html',
             controller: 'TreinoController'
 

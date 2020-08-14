@@ -1,13 +1,10 @@
-angular.module('myHeroTraining').controller('TreinoController',function ($scope) {
+angular.module('myHeroTraining').controller('TreinoController',function ($scope, $routeParams,myHeroTraining) {
     $scope.model = {
-
     }
     $scope.fotos =[
         {url: 'https://i0.statig.com.br/bancodeimagens/54/ab/3d/54ab3dww9e6ktcnafkfdp4294.jpg'}];
 
     $scope.fotoP =[
-
-
         {
             url:'https://gooutside-static-cdn.akamaized.net/wp-content/uploads/sites/3/2020/03/treino-e-dicas-para-se-manter-em-forma-em-casa.jpg'},
        ];
@@ -19,34 +16,24 @@ angular.module('myHeroTraining').controller('TreinoController',function ($scope)
     $scope.foto = {
         urlx:'angular/public/imagem/Chega%20de%20desculpas_%20malhe%20fora%20da%20academia.gif'
     }
+    var idTreino = $routeParams.id;
     $scope.desabilita = function () {
             return false;
     }
-  var cro = function () {
+    $scope.prevPage = function(page){
+        if($scope.currentPage-1 > 0){
+            $scope.changePage(page);
+        }
+    }
 
-      var countDownDate = new Date("August 3, 2020 09:00:00").getTime();
+    $scope.nextPage = function(page){
+        if($scope.currentPage+1 <= $scope.numberOfPages){
+            $scope.c.hangePage(page);
+        }
+    }
+    $scope.iniciar = function () {
+    myHeroTraining.carregarTreinos(idTreino)
+    }
 
-      // Update the count down every 1 second
-      var x = setInterval(function () {
 
-          // Get todays date and time
-          var now = new Date().getTime();
-
-          // Find the distance between now an the count down date
-          var distance = countDownDate -now;
-
-          // Time calculations for days, hours, minutes and seconds
-
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Display the result in the element with id="demo"
-          document.getElementById("dday").innerHTML =  hours + " horas "
-              + minutes + " minutos " + seconds + " segundos ";
-
-          // If the count down is finished, write some text
-      }, 1000);
-  }
-  cro();
 });
