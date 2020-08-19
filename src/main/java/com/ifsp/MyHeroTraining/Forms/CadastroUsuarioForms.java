@@ -2,6 +2,7 @@ package com.ifsp.MyHeroTraining.Forms;
 
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.Models.EmailUsuario;
+import com.ifsp.MyHeroTraining.Models.Usuario;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.Column;
@@ -101,5 +102,6 @@ public class CadastroUsuarioForms {
     public CadastroUsuario converter(){
         return new CadastroUsuario( nome, email,  senha, senhac, nascimento, peso, altura,contato, contato2);
     }
+
 
 }

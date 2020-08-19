@@ -29,6 +29,18 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
       });
 
   };
+    $scope.inicio = function () {
+        alert("kkkkkkkkkk")
+        var pagina = 0;
+        var qnt = 1;
+        alert("ddd")
+        myHeroTraining.carregarTreinos(pagina, qnt, idTreino).success(function (data) {
+            $scope.treinos = data.content;
+            console.log(data.content);
+
+
+        });
+    }
   $scope.logout = function(){
     localStorage.clear();
     $location.path('/login');

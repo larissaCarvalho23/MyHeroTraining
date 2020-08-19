@@ -31,9 +31,17 @@ angular.module('myHeroTraining').controller('TreinoController',function ($scope,
             $scope.c.hangePage(page);
         }
     }
-    $scope.iniciar = function () {
-    myHeroTraining.carregarTreinos(idTreino)
-    }
+    var carrega = function () {
+        var pagina = 0;
+        var qnt = 1;
+        alert("ddd")
+    myHeroTraining.carregarTreinos(pagina, qnt,idTreino).success(function (data){
+        $scope.treinos = data.content;
+        console.log(data.content);
 
+
+        });
+    }
+carrega();
 
 });

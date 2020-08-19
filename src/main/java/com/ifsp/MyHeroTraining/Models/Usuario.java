@@ -9,21 +9,21 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name ="usuario")
+@Table(name = "usuario")
 public class Usuario implements UserDetails {
+
+    private static final long serialVersionUID = 1L;
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private static final long seriaVersionUID = 1L;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     private String nome;
+    private String email;
+    private String senha;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfis = new ArrayList<>();
+
+
 
     public int getId() {
         return id;
@@ -33,11 +33,19 @@ public class Usuario implements UserDetails {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmailUsuario(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -49,16 +57,11 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-
-    private String email;
-    private String senha;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfils = new ArrayList<>();
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.perfils;
+        return this.perfis;
     }
+
     @Override
     public String getPassword() {
         return this.senha;
@@ -88,4 +91,5 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

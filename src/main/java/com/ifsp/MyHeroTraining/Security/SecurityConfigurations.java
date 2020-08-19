@@ -34,7 +34,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     //Configurações de autorização
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
        auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
-
     }
     //Método que libera controle de liberação de url para usuario logado e não logado
     @Override

@@ -1,20 +1,32 @@
 package com.ifsp.MyHeroTraining.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Treino {
-      @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static final int serialVersionUID = (int) 1L;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String descricao;
     private Time horas;
     private String intensidade;
     private String nivel;
+
+    public List<Dias> getDias() {
+        return dias;
+    }
+
+    public void setDias(List<Dias> dias) {
+        this.dias = dias;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Dias> dias = new ArrayList<>();
 
     public Treino() {
     this.id = id;

@@ -28,22 +28,14 @@
             <img src="{{foto.url}}" ng-model="objeto" class="card-img-top" alt="..."id="img-top">
 
             <div class="card-body">
-                <div class="card-body">
+                <div class="card-body" ng-repeat="treino in treinos">
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td><button type="button" class=" btn btn-link" ng-disabled="desabilita()" ><a  href="#/treino/inicio">Dia 1</a>
+                            <td><button type="button" class=" btn btn-link" ng-disabled="desabilita()" ><a  href="#/treino/inicio">{{treino.dias}}</a>
                             </button>
                             </td>
                             <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                        </tr>
-                        <tr>
-                            <td>Dia 2</td>
-                            <td><input type="checkbox" ng-click ="fadeIn()"class="form-check-input" id="exampleCheck2"></td>
-                        </tr>
-                        <tr>
-                            <td>Dia 2</td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck3"></td>
                         </tr>
                         </tbody>
                     </table>

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+import static java.lang.Integer.valueOf;
+
 @Service
 public class TokenService {
     @Value("${training.jwt.expiration}")
@@ -39,6 +41,6 @@ public class TokenService {
     }
     public int getIdusuario(String token) {
       Claims claims =  Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
-        return Integer.parseInt(claims.getSubject());
+        return valueOf(Integer.parseInt(claims.getSubject()));
     }
 }

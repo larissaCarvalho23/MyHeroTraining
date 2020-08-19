@@ -8,28 +8,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
 public class Perfil implements GrantedAuthority {
-    public int getId() {
+    private static final long serialVersionUID = 1L;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nome;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNomePerrfil() {
-        return nomePerrfil;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomePerrfil(String nomePerrfil) {
-        this.nomePerrfil = nomePerrfil;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String nomePerrfil;
 
     @Override
     public String getAuthority() {
-        return nomePerrfil;
+        return nome;
     }
+
 }

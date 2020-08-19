@@ -7,6 +7,7 @@ $scope.model = {
             alert("Cadastro realizado com sucesso!");
               $route.reload();
              enviarEmail();
+             usuarioCadastro();
           }).error(function (data,status) {
                 alert("Email já cadastrado!");
             $route.reload();
@@ -21,4 +22,9 @@ $scope.model = {
         cadastroService.email($scope.model.email).success(function (data) {
         });
      }
+     var usuarioCadastro = function () {
+        cadastroService.usuario($scope.model)
+
+     }
+     usuarioCadastro();
 });
