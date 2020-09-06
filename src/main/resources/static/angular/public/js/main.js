@@ -40,7 +40,6 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         $routeProvider.when('/treino/inicio/execucao', {
         templateUrl: 'angular/public/view/TreinoExecucao.html',
         controller: 'TreinoController'
-
     });
 
        $routeProvider.otherwise({redirectTo:'/home'});
