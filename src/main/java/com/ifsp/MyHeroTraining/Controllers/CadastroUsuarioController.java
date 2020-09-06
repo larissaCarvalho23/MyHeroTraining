@@ -26,19 +26,14 @@ import java.util.Optional;
 public class CadastroUsuarioController {
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
-
-
     @GetMapping
     public List<CadastroUsuario> listaUsuario(@RequestParam String email) {
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
         return cadastroUsuarios;
-
     }
 
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
-
-<<<<<<< HEAD
         CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
         //valida se o email já foi cadastrado
         Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
@@ -49,20 +44,5 @@ public class CadastroUsuarioController {
         cadastraUsuarioRepository.save(cadastroUsuario);
         URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
         return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));
-=======
-            CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
-            //valida se o email já foi cadastrado
-        //    Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
-          //  if(cadastroUsuario1.isPresent()){
-                //caso já exista o email cadastrado é retornado a bad request para o cliente
-            //    return ResponseEntity.badRequest().build();
-            //}
-            //falta salvar tbm no usuario repository para que possa ser feito o login com autenticacao
-            cadastraUsuarioRepository.save(cadastroUsuario);
-
-            URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
-            return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));
->>>>>>> criacao-fluxo-treinos
     }
-
 }
