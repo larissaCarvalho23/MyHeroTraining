@@ -3,9 +3,18 @@ angular.module('myHeroTraining').factory('loginService',function ($http){
 
        return $http.post('http://localhost:8080/auth',dadosUsuario)
     }
-    return{
+    var dadosCadastro = function (email) {
+        return $http.get('http://localhost:8080/cadastro-usuario', {
+            params: {
+                email: email
+            }
 
-        autenticar : autenticar
+        });
+    };
+            return{
+
+          autenticar : autenticar,
+        dadosCadastro : dadosCadastro
 
     }
 });

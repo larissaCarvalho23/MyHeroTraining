@@ -27,8 +27,8 @@ public class CadastroUsuarioController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping
-    public List<CadastroUsuario> listaUsuario() {
-        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findAll();
+    public List<CadastroUsuario> listaUsuario(@RequestParam String email) {
+        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
         return cadastroUsuarios;
 
     }
@@ -38,11 +38,11 @@ public class CadastroUsuarioController {
 
             CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
             //valida se o email já foi cadastrado
-            Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
-            if(cadastroUsuario1.isPresent()){
+        //    Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
+          //  if(cadastroUsuario1.isPresent()){
                 //caso já exista o email cadastrado é retornado a bad request para o cliente
-                return ResponseEntity.badRequest().build();
-            }
+            //    return ResponseEntity.badRequest().build();
+            //}
             //falta salvar tbm no usuario repository para que possa ser feito o login com autenticacao
             cadastraUsuarioRepository.save(cadastroUsuario);
 

@@ -6,10 +6,13 @@ import javax.persistence.Table;
 @Table(name = "cadastrousuario")
 public class CadastroUsuario {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
-    private String nome;
-    @Column(unique = true)
     private String email;
+
+   // @Column(unique = true)
+   // @Id
+   private String nome;
     private String senha;
     private String senhac;
     private String nascimento;
