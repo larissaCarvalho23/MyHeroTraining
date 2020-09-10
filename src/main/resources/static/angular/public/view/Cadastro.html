@@ -15,14 +15,14 @@
                 <label>Nome</label>
                 <input type="nome" name ="nome" ng-model="model.nome" class="form-control" name="nome" placeholder="Digite seu nome" required maxlength="40" minlength="5">
                  <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">
-                    Nome obrigat√≥rio
+                    Nome obrigatÛrio
                 </span>
                  <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength||formulario.nome.$error.minlength"class="form-control alert-danger">
-                    Nome inv√°lido
+                    Nome inv·lido
                 </span>
              </div>
             <div class="col-md-6">
-                  <label >Endere√ßo de email</label>
+                  <label >EndereÁo de email</label>
                  <input type="email" name="email" class="form-control"  ng-model="model.email"  placeholder="Seu email" required>
                 <span ng-show="formulario.$submitted && formulario.email.$error.required" class="form-control alert-danger">
                     Email obrigat√≥rio

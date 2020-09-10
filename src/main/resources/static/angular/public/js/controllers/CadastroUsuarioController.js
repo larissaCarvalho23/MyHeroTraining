@@ -27,4 +27,17 @@ $scope.model = {
 
      }
      usuarioCadastro();
+
+
+  $(document).ready(function(){
+  $('#pp').mask('000.00');
+ 
+ });
+
+ $(document).ready(function(){
+  $('#pap').mask('0.00');
+ 
+ });
 });
+
+ 
