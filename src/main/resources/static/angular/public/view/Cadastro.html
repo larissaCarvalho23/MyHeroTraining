@@ -9,6 +9,7 @@
     </div>
     <form novalidate name="formulario">
         <div ng-class="form-group">
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-md-6">
                     <label>Nome</label>
@@ -29,6 +30,23 @@
                            required>
                     <span ng-show="formulario.$submitted && formulario.email.$error.required"
                           class="form-control alert-danger">
+=======
+        <div class="row">
+             <div class="col-md-6">
+                <label>Nome</label>
+                <input type="nome" name ="nome" ng-model="model.nome" class="form-control" name="nome" placeholder="Digite seu nome" required maxlength="40" minlength="5">
+                 <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">
+                    Nome obrigatório
+                </span>
+                 <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength||formulario.nome.$error.minlength"class="form-control alert-danger">
+                    Nome inválido
+                </span>
+             </div>
+            <div class="col-md-6">
+                  <label >Endereço de email</label>
+                 <input type="email" name="email" class="form-control"  ng-model="model.email"  placeholder="Seu email" required>
+                <span ng-show="formulario.$submitted && formulario.email.$error.required" class="form-control alert-danger">
+>>>>>>> 09d0f7efed1dbb3cb85b7fa6c81a1efce955f7ca
                     Email obrigatÃ³rio
                 </span>
                     <span ng-show="formulario.$submitted && formulario.email.$error.email"
