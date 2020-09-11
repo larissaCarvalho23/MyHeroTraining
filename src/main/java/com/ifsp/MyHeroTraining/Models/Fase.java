@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "fase")
 public class Fase {
     public int getId() {
         return id;
@@ -43,7 +42,7 @@ public class Fase {
     private String descricao;
     private String dificuldade;
 
-    @OneToMany
-    private List<Treino> treinos = new ArrayList<>();
+    @ManyToMany
+    private List<Treino> treinos;
 
 }

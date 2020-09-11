@@ -1,22 +1,13 @@
 package com.ifsp.MyHeroTraining.Models;
-<<<<<<< HEAD
-
-=======
->>>>>>> criacao-fluxo-treinos
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
 
 @Entity
 public class Treino {
     private static final int serialVersionUID = (int) 1L;
 
-=======
-@Entity
-public class Treino {
->>>>>>> criacao-fluxo-treinos
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
@@ -24,8 +15,6 @@ public class Treino {
     private Time horas;
     private String intensidade;
     private String nivel;
-
-<<<<<<< HEAD
     public List<Dias> getDias() {
         return dias;
     }
@@ -33,12 +22,8 @@ public class Treino {
     public void setDias(List<Dias> dias) {
         this.dias = dias;
     }
-
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Dias> dias = new ArrayList<>();
-=======
-    @ManyToOne
-    private Fase fase;
 
     public List<Exercicio> getExercicios() {
         return exercicios;
@@ -48,7 +33,6 @@ public class Treino {
     }
     @ManyToMany
     private List<Exercicio> exercicios = new ArrayList<>();
->>>>>>> criacao-fluxo-treinos
 
     public Treino() {
     this.id = id;

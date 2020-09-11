@@ -29,7 +29,6 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
       });
 
   };
-<<<<<<< HEAD
     $scope.inicio = function () {
         alert("kkkkkkkkkk")
         var pagina = 0;
@@ -42,8 +41,7 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
 
         });
     }
-  $scope.logout = function(){
-=======
+
    var dadosLogin = function(){
        myHeroTraining.carregaDados().success(function (data) {
 
@@ -51,7 +49,7 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
 
    }
     $scope.logout = function(){
->>>>>>> criacao-fluxo-treinos
+
     localStorage.clear();
     sessionStorage.clear();
     $location.path('/login');
