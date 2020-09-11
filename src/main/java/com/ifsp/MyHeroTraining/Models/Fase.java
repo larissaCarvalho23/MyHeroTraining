@@ -37,13 +37,11 @@ public class Fase {
     private String dificuldade;
 
     @ManyToMany
-<<<<<<< HEAD
+
     private List<Treino> treinos;
-=======
-    private List<Exercicio> exercicios;
 
     @ManyToOne
     private Treino treino;
->>>>>>> criacao-fluxo-treinos
+
 
 }
