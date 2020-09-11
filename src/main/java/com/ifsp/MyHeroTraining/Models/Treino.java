@@ -1,20 +1,29 @@
 package com.ifsp.MyHeroTraining.Models;
-
-import javax.persistence.Entity;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Time;
-
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 public class Treino {
-      @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String descricao;
     private Time horas;
     private String intensidade;
     private String nivel;
+
+    @ManyToOne
+    private Fase fase;
+
+    public List<Exercicio> getExercicios() {
+        return exercicios;
+    }
+    public void setExercicios(List<Exercicio> exercicios) {
+        this.exercicios = exercicios;
+    }
+    @ManyToMany
+    private List<Exercicio> exercicios = new ArrayList<>();
 
     public Treino() {
     this.id = id;
