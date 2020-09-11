@@ -9,10 +9,13 @@ angular.module('myHeroTraining').factory('myHeroTraining',function ($http) {
         }
     });
 };
+    var carregaDados = function () {
+        return $http.get('/cadastro-usuario')
+    }
     return{
 
-    carregarTreinos : carregaTreinos
-
+    carregarTreinos : carregaTreinos,
+    carregaDados : carregaTreinos
 
     }
 });
