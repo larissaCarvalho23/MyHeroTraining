@@ -13,17 +13,8 @@ public class Treino {
     private String intensidade;
     private String nivel;
 
-    @ManyToOne
-    private Fase fase;
-
-    public List<Exercicio> getExercicios() {
-        return exercicios;
-    }
-    public void setExercicios(List<Exercicio> exercicios) {
-        this.exercicios = exercicios;
-    }
-    @ManyToMany
-    private List<Exercicio> exercicios = new ArrayList<>();
+    @OneToMany
+    private List<Fase> fases = new ArrayList<>();
 
     public Treino() {
     this.id = id;
