@@ -1,4 +1,6 @@
 package com.ifsp.MyHeroTraining.Models;
+import org.hibernate.validator.cfg.context.Cascadable;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,20 +31,19 @@ public class Fase {
         this.dificuldade = dificuldade;
     }
 
-    public List<Treino> getTreinos() {
-        return treinos;
-    }
-
-    public void setTreinos(List<Treino> treinos) {
-        this.treinos = treinos;
-    }
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String descricao;
     private String dificuldade;
 
     @ManyToMany
+<<<<<<< HEAD
     private List<Treino> treinos;
+=======
+    private List<Exercicio> exercicios;
+
+    @ManyToOne
+    private Treino treino;
+>>>>>>> criacao-fluxo-treinos
 
 }

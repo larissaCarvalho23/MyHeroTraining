@@ -19,6 +19,7 @@ public class Treino {
         return dias;
     }
 
+<<<<<<< HEAD
     public void setDias(List<Dias> dias) {
         this.dias = dias;
     }
@@ -33,6 +34,10 @@ public class Treino {
     }
     @ManyToMany
     private List<Exercicio> exercicios = new ArrayList<>();
+=======
+    @OneToMany
+    private List<Fase> fases = new ArrayList<>();
+>>>>>>> criacao-fluxo-treinos
 
     public Treino() {
     this.id = id;
