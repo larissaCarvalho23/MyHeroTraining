@@ -98,7 +98,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
 
         });
     }
-<<<<<<< HEAD
+
     var carrega = function () {
         var pagina = 0;
         var qnt = 1;
@@ -110,8 +110,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
 
         });
     }
-carrega();
-=======
+carrega()
     //falta pegar Id do usuario do banco e passar no parametro, pelo token
     //falta salvar id na tabela
     //true ?Ok
@@ -158,7 +157,7 @@ carrega();
             if(faseTerminadas === true && valor===idFase){
                     return false;
             }
->>>>>>> criacao-fluxo-treinos
+
 
         }
 

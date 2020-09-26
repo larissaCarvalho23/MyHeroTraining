@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
+@Table(name = "fase")
 public class Fase {
     public int getId() {
         return id;
@@ -29,11 +30,6 @@ public class Fase {
     private String descricao;
     private String dificuldade;
 
-<<<<<<< HEAD
-    @ManyToMany
-
-    private List<Treino> treinos;
-=======
     public Boolean getFaseConcluida() {
         return faseConcluida;
     }
@@ -44,9 +40,8 @@ public class Fase {
 
     @OneToMany
     private List<Exercicio> exercicios;
->>>>>>> criacao-fluxo-treinos
 
-   public Treino getTreino() {
+    public Treino getTreino() {
         return treino;
     }
     public void setTreino(Treino treino) {
@@ -54,9 +49,4 @@ public class Fase {
     }
     @ManyToOne
     private Treino treino;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> criacao-fluxo-treinos
 }

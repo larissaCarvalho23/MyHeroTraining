@@ -7,26 +7,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @Entity
-@Table(name = "usuario")
+@Table(name ="usuario")
 public class Usuario implements UserDetails {
-
-    private static final long serialVersionUID = 1L;
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nome;
-    private String email;
-    private String senha;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis = new ArrayList<>();
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private static final long seriaVersionUID = 1L;
 
     public String getNome() {
         return nome;
@@ -36,11 +21,21 @@ public class Usuario implements UserDetails {
         this.nome = nome;
     }
 
+    private String nome;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmailUsuario(String email) {
         this.email = email;
     }
 
@@ -52,8 +47,6 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-<<<<<<< HEAD
-=======
     private String email;
     private String senha;
     @ManyToOne
@@ -61,12 +54,10 @@ public class Usuario implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfils = new ArrayList<>();
 
->>>>>>> criacao-fluxo-treinos
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.perfis;
+        return this.perfils;
     }
-
     @Override
     public String getPassword() {
         return this.senha;
@@ -97,8 +88,6 @@ public class Usuario implements UserDetails {
         return true;
     }
 
-<<<<<<< HEAD
-=======
     public List<Treino> getTreinos() {
         return treinos;
     }
@@ -109,5 +98,4 @@ public class Usuario implements UserDetails {
 
     @OneToMany
     private List<Treino> treinos = new ArrayList<>();
->>>>>>> criacao-fluxo-treinos
 }
