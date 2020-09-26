@@ -32,7 +32,7 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
             controller: 'TreinoController'
 
         });
-        $routeProvider.when('/treino/inicio', {
+        $routeProvider.when('/treino/inicio/:id', {
             templateUrl: 'angular/public/view/inicioTreino.html',
             controller: 'TreinoController'
 

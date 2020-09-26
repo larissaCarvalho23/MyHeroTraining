@@ -74,16 +74,32 @@
                             <span ng-show="formulario.$submitted && formulario.peso.$error.required" class="form-control alert-danger">
                     peso obrigatório
                 </span>
+<<<<<<< HEAD
                         </div>   <div class="col-md-4">
                         <label >Altura</label>
                         <input type="text" name="altura3" class="form-control" id="pap" ng-model="model.altura" aria-describedby="emailHelp" minlength="2"  maxlength="4" placeholder="altura" required>
                         <span ng-show="formulario.$submitted && formulario.altura3.$error.required" class="form-control alert-danger">
+=======
+                        </div>
+                        <div class="col-md-4">
+                            <label>Altura</label>
+                            <input type="number" name="altura3" class="form-control" id="pap" ng-model="model.altura"
+                                   aria-describedby="emailHelp" minlength="3" maxlength="3" placeholder="altura"
+                                   required>
+                            <span ng-show="formulario.$submitted && formulario.altura3.$error.required"
+                                  class="form-control alert-danger">
+>>>>>>> criacao-fluxo-treinos
                     altura obrigatória
                 </span>
                         <span ng-show="formulario.$submitted && formulario.altura3.$error.minlength || formulario.altura3.$error.maxlength" class="form-control alert-danger">
                     Informe uma altura válida
+<<<<<<< HEAD
                 </span>
                     </div>
+=======
+            </span>
+                        </div>
+>>>>>>> criacao-fluxo-treinos
                     </div>
                 </div>
                 <div class="form-group">
@@ -106,9 +122,14 @@
                 </span>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <button type="submit" class="btn btn-dark" ng-click="salvar()">Cadastrar</button>
+=======
+                    <button type="submit" class="btn btn-dark" ng-click="salvar()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+>>>>>>> criacao-fluxo-treinos
     </form>
-
-</div>
 </div>

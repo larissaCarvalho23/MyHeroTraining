@@ -1,5 +1,4 @@
 package com.ifsp.MyHeroTraining.Models;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,7 +6,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 @Entity
 @Table(name = "usuario")
 public class Usuario implements UserDetails {
@@ -54,6 +52,16 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
+<<<<<<< HEAD
+=======
+    private String email;
+    private String senha;
+    @ManyToOne
+    private Treino treino;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfils = new ArrayList<>();
+
+>>>>>>> criacao-fluxo-treinos
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.perfis;
@@ -89,4 +97,17 @@ public class Usuario implements UserDetails {
         return true;
     }
 
+<<<<<<< HEAD
+=======
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
+    }
+
+    @OneToMany
+    private List<Treino> treinos = new ArrayList<>();
+>>>>>>> criacao-fluxo-treinos
 }
