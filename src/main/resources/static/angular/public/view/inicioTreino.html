@@ -3,37 +3,28 @@
         margin-top: 6px;
     }
     .btn{
-       ;
+       margin-top: 6px;
+        margin-bottom: 6px;
+        text-align: end;
+
     }
 </style>
 <div class="container">
     <div class="card-group" id="card_incio">
-        <div class="card">
+        <div class="card" ng-repeat="exercicio in exercicios">
             <img src="angular/public/imagem/Squat%20_%20Illustrated%20Exercise%20Guide.gif" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Agachamento</h5>
-                <p class="card-text">20x</p>
+            <div class="card-body" >
+                <h5 class="card-title">{{exercicio.descricao}}</h5>
+                <p class="card-text">{{exercicio.nome}}</p>
                 <p class="card-text"><small class="text-muted">15 min</small></p>
             </div>
         </div>
-        <div class="card">
-            <img src="angular/public/imagem/Double%20Pulse%20Squat%20Jump%20_%20Exercise%20Illustration.gif" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Agachamento jump</h5>
-                <p class="card-text">20x.</p>
-                <p class="card-text"><small class="text-muted">15 min</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="angular/public/imagem/Cardio%20HIIT%20Workouts%20by%20TheMillionFV-GYM%20-%20dailymotion.gif" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Lateral jump</h5>
-                <p class="card-text">20x</p>
-                <p class="card-text"><small class="text-muted">15 min </small></p>
-            </div>
-        </div>
+
     </div>
-    <a href="#/treino/inicio/execucao">
-    <button type="button" class="btn btn-secondary">Iniciar</button>
-    </a>
+    <div class="justify-content-end">
+        <button type="button" ng-model="value" class="btn btn-secondary" ng-show="inicia()" ng-click="iniciar()">Iniciar</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+
+    </div>
     </div>

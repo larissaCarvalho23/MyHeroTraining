@@ -1,5 +1,5 @@
 package com.ifsp.MyHeroTraining.Controllers;
-
+import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/treinos")
-public class TrienoController {
+public class TreinoController {
     @Autowired
     private TreinoRepository treinoRepository;
     @GetMapping
@@ -21,16 +21,28 @@ public class TrienoController {
         if (id == null) {
             Page<Treino> treino = treinoRepository.findAll(paginacao);
             return treino;
-
         } else {
             Page<Treino> treino = treinoRepository.findById(id,paginacao);
             return treino;
         }
     }
         @PostMapping
-        public void cadasTreinos(){
+        public Treino cadasTreinos(@RequestBody Treino treino){
+           // treinoRepository.save(treino);
+            return treino;
+        }
+  /*  @PutMapping("/{id}")
+    public Treino UpdateUsuario(@PathVariable int id, @RequestParam AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms){
+        Treino  treinoAtualiza =  atualizaUsuarioTreinoForms.AtualizaId(id,treinoRepository);
+        return treinoAtualiza;
 
+        }*/
+        @GetMapping("/recupera")
+        public List<Treino> buscaTreinosFeitos(@RequestParam Integer IdUsuario){
+            List<Treino> treino = treinoRepository.findByUsuarioId(IdUsuario);
+            return treino;
         }
 
-    }
+
+}
 

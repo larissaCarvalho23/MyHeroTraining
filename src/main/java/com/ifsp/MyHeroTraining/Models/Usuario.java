@@ -1,5 +1,4 @@
 package com.ifsp.MyHeroTraining.Models;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,7 +6,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 @Entity
 @Table(name ="usuario")
 public class Usuario implements UserDetails {
@@ -49,9 +47,10 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-
     private String email;
     private String senha;
+    @ManyToOne
+    private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfils = new ArrayList<>();
 
@@ -88,4 +87,15 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
+    }
+
+    @OneToMany
+    private List<Treino> treinos = new ArrayList<>();
 }

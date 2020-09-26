@@ -12,44 +12,27 @@
         margin-top: 12px;
     }
     </style>
-
-
 <div class="container">
-    <!--div class="card" style="width: 18rem;" ng-repeat="fotos in fotoP">
-        <img class="card-img-top" src="{{fotos.urlx}}" alt="Imagem de capa do card">
-        <div class="card-body">
-            <h5 class="card-title">Título do card</h5>
-            <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-            <a href="#" class="btn btn-primary">Visitar</a>
-        </div>
-    </div-->
        <div class="row" id="card" >
-        <div class="card mb-3 col-sm-8 " id="cardInicioTreino" ng-repeat="foto in fotos">
+           <div class="card mb-3 col-sm-8 " id="cardInicioTreino" ng-repeat="foto in fotos">
             <img src="{{foto.url}}" ng-model="objeto" class="card-img-top" alt="..."id="img-top">
 
             <div class="card-body">
                 <div class="card-body">
                     <table class="table">
                         <tbody>
-                        <tr>
-                            <td><button type="button" class=" btn btn-link" ng-disabled="desabilita()" ><a  href="#/treino/inicio">Dia 1</a>
+                        <tr ng-repeat="fase in fases">
+                            <td><button type="button" class=" btn btn-link" ng-disabled="desabilita({{fase.id}})"><a  href="#/treino/inicio/{{fase.id}}"  ng-click="TreinoId()">{{fase.descricao}} </a>
                             </button>
                             </td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td><input type="checkbox" class="form-check-input" ng-disabled="desabilita({{fase.id}})" ng-checked ="item({{fase.id}})"></td>
                         </tr>
-                        <tr>
-                            <td>Dia 2</td>
-                            <td><input type="checkbox" ng-click ="fadeIn()"class="form-check-input" id="exampleCheck2"></td>
-                        </tr>
-                        <tr>
-                            <td>Dia 2</td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck3"></td>
-                        </tr>
+                        <div class="" ng-repeat="test in teste"></div>
+                        <tr><td>{{teste}}</td></tr>
                         </tbody>
                     </table>
             </div>
             </div>
         </div>
 </div>
-
-
+</div>
