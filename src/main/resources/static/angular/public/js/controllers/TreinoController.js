@@ -155,12 +155,9 @@ carrega()
             }
           //liberar proxima fase pode ser um ou com a proxima condição
             if(faseTerminadas === true && valor===idFase){
-                    return false;
+                   return false;
             }
-
-
         }
-
     }
     var atualizaFaseBanco = function (idFase) {
 
