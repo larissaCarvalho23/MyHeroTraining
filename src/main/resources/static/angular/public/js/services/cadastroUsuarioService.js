@@ -4,11 +4,11 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
         var jwt = localStorage.getItem("Bearer");
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.post('http://localhost:8080/cadastro-usuario', model);
+        return $http.post('/cadastro-usuario', model);
 
     }
     var email = function (email) {
-        return $http.post('http://localhost:8080/email', email);
+        return $http.post('/email', email);
     }
     return {
         incluir: incluir,

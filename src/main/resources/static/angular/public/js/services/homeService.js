@@ -15,7 +15,7 @@ angular.module('myHeroTraining').factory('myHeroTraining',function ($http) {
     return{
 
     carregarTreinos : carregaTreinos,
-    carregaDados : carregaTreinos
+    carregaDados : carregaDados
 
     }
 });

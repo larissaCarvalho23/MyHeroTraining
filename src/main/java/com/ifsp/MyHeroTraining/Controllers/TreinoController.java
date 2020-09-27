@@ -42,7 +42,5 @@ public class TreinoController {
             List<Treino> treino = treinoRepository.findByUsuarioId(IdUsuario);
             return treino;
         }
-
-
 }
 

@@ -3,6 +3,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -46,6 +47,16 @@ public class Usuario implements UserDetails {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    private String token;
 
     private String email;
     private String senha;

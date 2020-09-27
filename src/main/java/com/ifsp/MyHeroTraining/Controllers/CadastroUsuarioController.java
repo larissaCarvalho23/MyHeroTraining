@@ -38,16 +38,15 @@ public class CadastroUsuarioController {
 
     }
 
-
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 
             CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
             //valida se o email já foi cadastrado
-        Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
+            Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
             if(cadastroUsuario1.isPresent()){
                 //caso já exista o email cadastrado é retornado a bad request para o cliente
-            //    return ResponseEntity.badRequest().build();
+               return ResponseEntity.badRequest().build();
             }
             //falta salvar tbm no usuario repository para que possa ser feito o login com autenticacao
             cadastraUsuarioRepository.save(cadastroUsuario);

@@ -14,6 +14,7 @@ public class FaseAtualiza {
         this.faseConcluida = faseConcluida;
     }
     public Boolean faseConcluida;
+
     public Fase atualizar(@NotNull Integer id, @NotNull FaseRepository faseRepository) {
         Fase fase = faseRepository.getOne(id);
         fase.setFaseConcluida(this.faseConcluida);
