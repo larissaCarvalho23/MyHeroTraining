@@ -10,11 +10,14 @@ angular.module('myHeroTraining').factory('loginService',function ($http){
             }
         });
     };
-
     var atualizaToken = function (id,token) {
-        return $http.put('/auth/'+id, token)
+        return $http.put('/auth/'+id,
+            {
+                params: {
+                    token:token
+                }
+            });
     }
-
       return{
        autenticar : autenticar,
       dadosCadastro : dadosCadastro,

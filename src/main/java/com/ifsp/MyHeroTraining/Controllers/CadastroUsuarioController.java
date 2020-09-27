@@ -1,6 +1,5 @@
 package com.ifsp.MyHeroTraining.Controllers;
-
-        import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
+import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
         import com.ifsp.MyHeroTraining.Forms.CadastroUsuarioForms;
         import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
         import com.ifsp.MyHeroTraining.Models.Treino;
@@ -35,9 +34,7 @@ public class CadastroUsuarioController {
         public List<CadastroUsuario> listaUsuario() {
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findAll();
         return cadastroUsuarios;
-
     }
-
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 

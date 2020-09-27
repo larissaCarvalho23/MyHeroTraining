@@ -87,6 +87,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
             exericioPaginacao(id, pag, qtd)
             pagina += 1;
         });
+
     }
     var exericioPaginacao = function (id, pagina, qnt) {
         TreinoService.carregaExercicios(id, pagina, qnt).success(function (data) {
@@ -109,9 +110,13 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
                 treinosRealizados.push(data[j].id)
                 TreinoService.carregaFases(treinosRealizados).success(function (data) {
                     for (var i = 0; i < data.length; i++) {
+                        console.log(data.length)
+                        console.log(data)
                         if (data[i].faseConcluida === true)
                             faseTerminadas.push(data[i].id)
+
                     }
+
                 });
             }
         });
@@ -126,7 +131,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
     $scope.item = function (valor) {
         for (var i = 0; i <= faseTerminadas.length; i++) {
 
-            if (faseTerminadas.indexOf(valor) != -1) {
+            if (faseTerminadas.indexOf(valor) != -1)    {
                 return true;
             }
         }
@@ -138,26 +143,24 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
     };
     //logica de habilitar e desabilitar fases
     $scope.desabilita = function (valor) {
-        for (var i = 0; i <= faseTerminadas.length; i++) {
 
-            if (faseTerminadas.indexOf(valor) != -1  ) {
-                return true;
-            }
-          //liberar proxima fase pode ser um ou com a proxima condição
-            if(liberarProxFase === true && valor===idFase){
-                    return false;
-            }
-            //quando chegar na ultima fase desbloquear todas as linnhas
-            if(quantidadeFases === valor && liberarTodasFases === true){
+       // for (var i = 0; i <= faseTerminadas.length; i++) {
+            var ProximaFase = faseTerminadas[0];
+            if (valor ===1 ||faseTerminadas.indexOf(valor) === -1 && valor === parseInt(ProximaFase)+ parseInt(1)
+
+                || quantidadeFases === valor && liberarTodasFases === true ) {
                 return false;
             }
-            if(valor ===3){
-                return true;
+          //liberar proxima fase pode ser um ou com a proxima condição
+            else {
+                faseTerminadas.indexOf(valor) != -1
+                    return true;
             }
-        }
+
+        return false;
     }
     var atualizaFaseBanco = function (idFase) {
-        var faseConcluida = 'true';
+        var faseConcluida = true;
         TreinoService.atualizaFaseConcluida(idFase, faseConcluida).success(function (data) {
         });
     }
@@ -170,21 +173,23 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
         //UPDATE no banco o campo true;
         //UPDATE COM ID DO USUARIO
         //select campo x where id seja igual ao id do usuario
-        atualizaFaseBanco(id);
+
         atualizaIdusuarioTreino();
         liberarProxFase=true;
-        idFase = id+1;
+        idFase = parseInt(id) + parseInt(1);
         if (quantidadeFases === id){
             liberarTodasFases = true;
         }
         //atualiza id funcionario
             TreinoService.carregaIdTreino(id).success(function (data) {
             idTreino = data[0].treino.id;
+            alert(id);
+            alert(idFase);
             $location.path('treinos/' + idTreino);
         });
     }
     exerciciosFase();
     fasesTreinos();
-
-    console.log(localStorage.getItem('Bearer'))
+console.log(faseTerminadas)
+    atualizaFaseBanco(id);
 });

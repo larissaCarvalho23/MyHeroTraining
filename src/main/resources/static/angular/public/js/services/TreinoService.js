@@ -25,11 +25,16 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
             }
         });
     };
-    var atualizaFaseConcluida = function (id,model) {
-        return $http.put('/fase/concluida/'+id, model)
+    var atualizaFaseConcluida = function (id,faseConcluida) {
+        return $http.put('/fase/' +id, faseConcluida)
+
     }
     var atualizaIdusuarioTreino = function (id,model) {
-        return $http.put('/treino/'+id, model)
+        return $http.put('/treino/'+id, {
+            params:{
+                model :model
+            }
+        })
     }
    /* var buscaIdUsuario = function (token) {
         return $http.get('/usuario',token)
@@ -41,8 +46,13 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
             }
         });
     }
-    var atualizaIdUsuario = function () {
-        return $http.put('fase')
+    var atualizaIdUsuario = function (faseConcluida) {
+        return $http.put('fase',
+            {
+                params:{
+                    faseConcluida :faseConcluida
+                }
+            })
     }
     return {
         carregarTreinos: carregaTreinos,

@@ -39,8 +39,5 @@ public class UsuarioForms {
     public void setToken(String token) {
         this.token = token;
     }
-
     private  String token;
-
-
 }

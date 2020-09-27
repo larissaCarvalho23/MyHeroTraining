@@ -1,5 +1,4 @@
 package com.ifsp.MyHeroTraining.Controllers;
-
 import com.ifsp.MyHeroTraining.DTO.TokenDto;
 import com.ifsp.MyHeroTraining.Forms.UsuarioAtualiza;
 import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
@@ -48,12 +47,9 @@ public class AutenticacaoController {
     @PutMapping("/{id}")
     @Transactional
     public Usuario UpdateFase(@PathVariable int id, @RequestBody UsuarioAtualiza usuarioAtualiza){
-
         Usuario usuario = usuarioAtualiza.atualizar(id,usuarioRepository);
         return usuario;
     }
-
-
 }
 
 
