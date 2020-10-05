@@ -17,6 +17,7 @@ public class CadastroUsuario {
     private String altura;
     private String contato;
     private String contato2;
+    private Boolean isEnable;
 
     public CadastroUsuario() {
         this.id = id;
@@ -29,9 +30,10 @@ public class CadastroUsuario {
         this.altura = altura;
         this.contato = contato;
         this.contato2 = contato2;
+        this.isEnable = isEnable;
     }
 
-    public CadastroUsuario(String nome, String email, String senha, String senhac, String nascimento, String peso, String altura, String contato, String contato2) {
+    public CadastroUsuario(String nome, String email, String senha, String senhac, String nascimento, String peso, String altura, String contato, String contato2, Boolean isEnable) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -41,6 +43,7 @@ public class CadastroUsuario {
         this.altura = altura;
         this.contato = contato;
         this.contato2 = contato2;
+        this.isEnable = isEnable;
     }
     public CadastroUsuario(String email)
     {
@@ -128,5 +131,13 @@ public class CadastroUsuario {
 
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
+    }
+
+    public Boolean getEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(Boolean enable) {
+        isEnable = enable;
     }
 }

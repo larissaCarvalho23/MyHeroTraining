@@ -13,9 +13,14 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
     var usuario = function (model) {
         return $http.post('/usuario', model);
     }
+    var confirmar = function(params){
+        console.log()
+        return $http.post('/confirm-account', params);
+    }
     return {
         incluir: incluir,
         email: email,
-        usuario :usuario
+        usuario :usuario,
+        confirmar: confirmar
     }
 });

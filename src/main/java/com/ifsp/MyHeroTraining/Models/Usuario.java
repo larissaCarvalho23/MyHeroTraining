@@ -54,6 +54,7 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.perfis;
@@ -86,7 +87,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
     }
 
 }

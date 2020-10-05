@@ -17,11 +17,31 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
             controller: 'cadastroController'
 
         });
+
+        $routeProvider.when('/forgot-password', {
+        templateUrl: 'angular/public/view/forgotPassword.html',
+
+        });
         $routeProvider.when('/login', {
             templateUrl: 'angular/public/view/login.html',
             controller: 'login-controller'
 
         });
+        $routeProvider.when('/account-verified', {
+        templateUrl: 'angular/public/view/accountVerified.html',
+
+         });
+
+        $routeProvider.when('/account-verified-error', {
+            templateUrl: 'angular/public/view/accountVerifiedError.html',
+
+        });
+
+        $routeProvider.when('/confirm-account', {
+            templateUrl: 'angular/public/view/accountVerified.html',
+            controller: 'confirmEmail'
+        });
+
         $routeProvider.when('/dados_login', {
             templateUrl: 'angular/public/view/dadosLogin.html',
             controller: 'login-controller'
