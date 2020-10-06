@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="form-gap"></div>
+<div class="d-flex justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h3><i class="fa fa-lock fa-4x"></i></h3>
+                            <h2 class="text-center">Esqueceu sua senha?</h2>
+                            <p>Você pode resetar ela aqui!.</p>
+                            <div class="panel-body">
+                                <form role="form" autocomplete="on" class="form" method="post" ng-submit="recuperarSenha()">
+                                    <div class="form-group">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8" >
+                                                <label>Nova Senha</label>
+                                                <input type="password"  class="form-control" name="senha1" ng-model="model.senha"  placeholder="Senha máximo 6 caracteres " minlength="6" maxlength="18" required>
+                                                <span ng-show="formulario.$submitted && formulario.senha1.$error.required " class="form-control alert-danger">
+                                                     senha obrigatório
+                                                </span>
+                                                <span ng-show="formulario.senha1.$error.minlength && formulario.$submitted " class="form-control alert-danger">
+                                                     senha invÃ¡lida no mÃ­nimo 6 caracteres e no mÃ¡ximo 18 caracteres
+                                                </span>
+                                                <label >Confirme a nova senha</label>
+                                                <input type="password" class="form-control" name="senha2" ng-model="model.senhac"  placeholder="Senha" ng-pattern="model.senha"  minlength="6" maxlength="18"  required>
+                                                <span ng-show="formulario.$submitted && formulario.senha2.$error.required" class="form-control alert-danger">
+                                                    confirme a senha
+                                                </span>
+                                                <span ng-show="formulario.senha2.$error.minlength && formulario.$submitted " class="form-control alert-danger">
+                                                    senha invÃ¡lida no mÃ­nimo 6 caracteres e no mÃ¡ximo 18 caracteres
+                                                </span>
+                                                <span ng-show="formulario.senha2.$error.pattern" class="form-control alert-danger">
+                                                    senhas divergentes!
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar Senha</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -46,8 +46,7 @@ public class CadastroUsuarioController {
             //caso já exista o email cadastrado é retornado a bad request para o cliente
             return ResponseEntity.badRequest().build();
         }
-        cadastroUsuario.setSenha(passwordEncoder.encode(cadastroUsuario.getSenha()));
-        cadastroUsuario.setSenhac(passwordEncoder.encode(cadastroUsuario.getSenhac()));
+
         cadastroUsuario.setEnable(false);
         cadastroUsuarioRepository.save(cadastroUsuario);
         URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();

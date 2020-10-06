@@ -17,10 +17,16 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
         console.log()
         return $http.post('/confirm-account', params);
     }
+    var recuperar = function(email){
+        console.log()
+        return $http.post('/forgot-password', email);
+    }
+
     return {
         incluir: incluir,
         email: email,
         usuario :usuario,
-        confirmar: confirmar
+        confirmar: confirmar,
+        recuperar: recuperar
     }
 });

@@ -31,6 +31,7 @@ public class ConfirmEmailController {
                 Optional<CadastroUsuario> user = cadastroUsuarioRepository.findByEmail(token.getUser().getEmail());
                 user.get().setEnable(true);
                 cadastroUsuarioRepository.save(user.get());
+                confirmationTokenRepository.delete(token);
                 return ResponseEntity.ok().build();
             } catch (Exception e) {
             e.printStackTrace();

@@ -18,8 +18,18 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
 
         });
 
+    $routeProvider.when('/confirm-reset', {
+        templateUrl: 'angular/public/view/confirmReset.html',
+        controller: 'cadastroController'
+    });
+
+    $routeProvider.when('/success-reset', {
+        templateUrl: 'angular/public/view/successForgotPassword.html'
+    });
+
         $routeProvider.when('/forgot-password', {
-        templateUrl: 'angular/public/view/forgotPassword.html',
+            templateUrl: 'angular/public/view/forgotPassword.html',
+            controller: 'recoverPassword'
 
         });
         $routeProvider.when('/login', {
