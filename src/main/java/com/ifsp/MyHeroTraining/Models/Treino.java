@@ -14,7 +14,7 @@ import java.util.List;
     private String intensidade;
     private String nivel;
 
-    @OneToMany
+    @ManyToMany
     private List<Fase> fases = new ArrayList<>();
     public Treino() {
     this.id = id;
@@ -53,7 +53,6 @@ import java.util.List;
     public String getIntensidade() {
         return intensidade;
     }
-
     public void setIntensidade(String intensidade) {
         this.intensidade = intensidade;
     }
@@ -66,14 +65,39 @@ import java.util.List;
         this.nivel = nivel;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+       public Boolean getTreinoFinalizado() {
+        return treinoFinalizado;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setTreinoFinalizado(Boolean treinoFinalizado) {
+        this.treinoFinalizado = treinoFinalizado;
     }
 
-    @ManyToOne
-   private Usuario usuario;
+    public Boolean treinoFinalizado;
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    private String url;
+
+    @ManyToMany
+    private List<Usuario> usuarios;
+
+
+    @OneToMany
+    private List<Exercicio> exercicios;
+
 }

@@ -12,9 +12,19 @@ import java.util.List;
 
 public interface FaseRepository extends JpaRepository<Fase, Integer> {
 
-  List<Fase> findByTreinoId(Integer id);
+ // List<Treino> findByIdOrderById(Integer id);
 
-    List<Fase> findFaseById(Integer id);
+
+
+    List<Fase> findFasesByTreinoId(Integer id);
+
+    //List<Treino> findById(int id);
+
+    List<Fase>findByUsuariosId(int id);
+
+  List<Fase>findById(int id);
+
+
 
 
 

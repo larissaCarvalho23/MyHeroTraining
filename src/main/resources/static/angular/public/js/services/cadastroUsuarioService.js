@@ -10,8 +10,12 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
     var email = function (email) {
         return $http.post('/email', email);
     }
+    var usuario = function (model) {
+        return $http.post('/usuario', model);
+    }
     return {
         incluir: incluir,
-        email: email
+        email: email,
+        usuario: usuario
     }
 });

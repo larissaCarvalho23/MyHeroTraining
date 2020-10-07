@@ -1,10 +1,9 @@
-angular.module('myHeroTraining').controller('login-controller',function ($scope,loginService,$location) {
-$scope.model= {}
-var id_usuario;
+angular.module('myHeroTraining').controller('login-controller', function ($scope, loginService, $location) {
+    $scope.model = {}
     $scope.logar = function () {
         loginService.autenticar($scope.model).success(function (data) {
-            localStorage.setItem(data.tipo,data.token);
-            carregaDadosLogin($scope.model.email);
+            carregaid($scope.model.email);
+            localStorage.setItem(data.tipo, data.token);
             alert("Bem vindo!!!")
             $location.path('/home');
         }).error(function (status) {
@@ -12,20 +11,10 @@ var id_usuario;
             $location.path('/login');
         });
     }
-    var carregaDadosLogin = function (email) {
-    loginService.dadosCadastro(email).success(function (data) {
-        $scope.dados = data;
-        console.log()
-        id_usuario = data[0].id;
-        var token = localStorage.getItem('Bearer')
-
-        UpdateToken(id_usuario,token);
-    });
-    }
-    var UpdateToken = function(id,token){
-        loginService.atualizaToken(id,token).success(function (data) {
-
+    var id = sessionStorage.getItem('id');
+    var carregaid = function (email) {
+        loginService.dadosLogin(email).success(function (data) {
+            sessionStorage.setItem('id', data[0].id);
         });
-    };
-
+    }
 });
