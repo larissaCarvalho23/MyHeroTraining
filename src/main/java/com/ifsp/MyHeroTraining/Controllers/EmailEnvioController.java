@@ -4,7 +4,7 @@ import com.ifsp.MyHeroTraining.ConfigEmail.EmailConfig;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.Models.ConfirmationToken;
 import com.ifsp.MyHeroTraining.Models.EmailUsuario;
-import com.ifsp.MyHeroTraining.repository.CadastroUsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.ConfirmationTokenRepository;
 import com.ifsp.MyHeroTraining.repository.EmailRepository;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public class EmailEnvioController {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
     @Autowired
-    private CadastroUsuarioRepository cadastroUsuarioRepository;
+    private CadastraUsuarioRepository cadastraUsuarioRepository;
 
         @GetMapping
         public List<EmailUsuario> listaUsuario(){
@@ -42,7 +42,7 @@ public class EmailEnvioController {
         // emailRepository.save(emailUsuario);
         try {
         logger.info(emailusuario);
-            Optional<CadastroUsuario> user = cadastroUsuarioRepository.findByEmail(emailusuario);
+            Optional<CadastroUsuario> user = cadastraUsuarioRepository.findByEmail(emailusuario);
             ConfirmationToken confirmationToken = new ConfirmationToken(user.get());
 
             confirmationTokenRepository.save(confirmationToken);

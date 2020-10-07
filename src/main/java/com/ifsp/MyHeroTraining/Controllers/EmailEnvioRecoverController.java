@@ -3,7 +3,7 @@ package com.ifsp.MyHeroTraining.Controllers;
 import com.ifsp.MyHeroTraining.ConfigEmail.EmailConfig;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.Models.ConfirmationToken;
-import com.ifsp.MyHeroTraining.repository.CadastroUsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.ConfirmationTokenRepository;
 import com.ifsp.MyHeroTraining.repository.EmailRepository;
 import org.slf4j.Logger;
@@ -29,7 +29,7 @@ public class EmailEnvioRecoverController {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
     @Autowired
-    private CadastroUsuarioRepository cadastroUsuarioRepository;
+    private CadastraUsuarioRepository cadastraUsuarioRepository;
 
     @PostMapping
     public ResponseEntity forgotUserPassword(@RequestBody String email) {
@@ -38,7 +38,7 @@ public class EmailEnvioRecoverController {
         mailSender = em.mailSender();
         logger.info(email);
 
-        Optional<CadastroUsuario> existingUser = cadastroUsuarioRepository.findByEmail(email);
+        Optional<CadastroUsuario> existingUser = cadastraUsuarioRepository.findByEmail(email);
         logger.info(String.valueOf(existingUser.get()));
         if (existingUser.isPresent()) {
             try {

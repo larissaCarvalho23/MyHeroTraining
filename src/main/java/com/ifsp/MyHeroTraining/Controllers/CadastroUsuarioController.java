@@ -3,14 +3,12 @@ package com.ifsp.MyHeroTraining.Controllers;
 import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
 import com.ifsp.MyHeroTraining.Forms.CadastroUsuarioForms;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -52,7 +50,7 @@ public class CadastroUsuarioController {
         }
         cadastroUsuario.setSenha(passwordEncoder.encode(cadastroUsuario.getSenha()));
         cadastroUsuario.setSenhac(passwordEncoder.encode(cadastroUsuario.getSenhac()));
-        cadastroUsuarioRepository.save(cadastroUsuario);
+        cadastraUsuarioRepository.save(cadastroUsuario);
         URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
         return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));
     }
