@@ -5,6 +5,8 @@ import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.Security.TokenService;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +27,7 @@ public class AutenticacaoController {
     private TokenService tokenService;
     @Autowired
     private UsuarioRepository usuarioRepository;
-
+    Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @GetMapping
     public void Dados(){
 
@@ -38,6 +40,7 @@ public class AutenticacaoController {
             String token = tokenService.gerarToken(authentication);
             return ResponseEntity.ok(new TokenDto(token, "Bearer"));
         } catch (AuthenticationException e) {
+            logger.info(String.valueOf(e));
             return ResponseEntity.badRequest().build();
         }
     }
@@ -48,6 +51,5 @@ public class AutenticacaoController {
         return usuario;
     }
 }
-
 
 

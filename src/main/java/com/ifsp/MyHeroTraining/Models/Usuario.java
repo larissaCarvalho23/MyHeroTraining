@@ -3,7 +3,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -25,7 +24,6 @@ public class Usuario implements UserDetails {
     private List<Treino> treinos = new ArrayList<>();
     @OneToMany
     private List<Fase> fase = new ArrayList<>();
-
 
 
     public String getNome() {
@@ -99,7 +97,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return getEnable();
     }
 
     public List<Treino> getTreinos() {
