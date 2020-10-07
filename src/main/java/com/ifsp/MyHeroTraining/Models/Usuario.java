@@ -3,11 +3,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @Entity
-@Table(name ="usuario")
 public class Usuario implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -47,10 +47,19 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    private String token;
+
     private String email;
     private String senha;
-    @ManyToOne
-    private Treino treino;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfils = new ArrayList<>();
 
@@ -88,6 +97,17 @@ public class Usuario implements UserDetails {
         return true;
     }
 
+    public List<Fase> getFase() {
+        return fase;
+    }
+
+    public void setFase(List<Fase> fase) {
+        this.fase = fase;
+    }
+
+    @OneToMany
+   private List<Fase> fase = new ArrayList<>();
+
     public List<Treino> getTreinos() {
         return treinos;
     }
@@ -96,6 +116,13 @@ public class Usuario implements UserDetails {
         this.treinos = treinos;
     }
 
+<<<<<<< HEAD
     @OneToMany
     private List<Treino> treinos = new ArrayList<>();
 }
+=======
+    @ManyToMany
+    private List<Treino>treinos = new ArrayList<>();
+
+}
+>>>>>>> criacao-fluxo-treinos

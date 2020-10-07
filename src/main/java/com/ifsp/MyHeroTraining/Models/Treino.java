@@ -14,7 +14,7 @@ public class Treino {
     private String intensidade;
     private String nivel;
 
-    @OneToMany
+    @ManyToMany
     private List<Fase> fases = new ArrayList<>();
     public Treino() {
         this.id = id;
@@ -53,7 +53,6 @@ public class Treino {
     public String getIntensidade() {
         return intensidade;
     }
-
     public void setIntensidade(String intensidade) {
         this.intensidade = intensidade;
     }
@@ -66,14 +65,45 @@ public class Treino {
         this.nivel = nivel;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+       public Boolean getTreinoFinalizado() {
+        return treinoFinalizado;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setTreinoFinalizado(Boolean treinoFinalizado) {
+        this.treinoFinalizado = treinoFinalizado;
     }
 
+    public Boolean treinoFinalizado;
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+<<<<<<< HEAD
     @ManyToOne
     private Usuario usuario;
 }
+=======
+    private String url;
+
+    @ManyToMany
+    private List<Usuario> usuarios;
+
+
+    @OneToMany
+    private List<Exercicio> exercicios;
+
+}
+>>>>>>> criacao-fluxo-treinos

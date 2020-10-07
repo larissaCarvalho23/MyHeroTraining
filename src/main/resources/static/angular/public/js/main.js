@@ -24,7 +24,7 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         });
         $routeProvider.when('/dados_login', {
             templateUrl: 'angular/public/view/dadosLogin.html',
-            controller: 'login-controller'
+            controller: 'TreinoController'
 
         });
         $routeProvider.when('/treinos/:id', {

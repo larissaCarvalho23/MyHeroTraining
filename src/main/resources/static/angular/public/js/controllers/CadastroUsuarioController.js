@@ -7,13 +7,18 @@ $scope.model = {
             alert("Cadastro realizado com sucesso!");
               $route.reload();
              enviarEmail();
+<<<<<<< HEAD
              usuarioCadastro();
+=======
+          usuarioCadastro();
+>>>>>>> criacao-fluxo-treinos
           }).error(function (data,status) {
                 alert("Email já cadastrado!");
             $route.reload();
       });
             //fazer tratamento de erro caso não retorno com sucess
       }
+
       else if ($scope.formulario.$invalid) {
           alert("Dados inválidos");
       }
@@ -22,6 +27,7 @@ $scope.model = {
         cadastroService.email($scope.model.email).success(function (data) {
         });
      }
+<<<<<<< HEAD
      var usuarioCadastro = function () {
         cadastroService.usuario($scope.model)
 
@@ -41,3 +47,10 @@ $scope.model = {
 });
 
  
+=======
+    var usuarioCadastro = function () {
+        cadastroService.usuario($scope.model)
+
+    }
+});
+>>>>>>> criacao-fluxo-treinos

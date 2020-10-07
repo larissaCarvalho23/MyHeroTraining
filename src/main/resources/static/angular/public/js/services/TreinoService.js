@@ -2,7 +2,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     var carregaTreinos = function (qnt, pg) {
         return $http.get('/treinos', qnt, pg);
     };
-    var carregaFases = function (id) {
+    var carregaFasesTreino = function (id) {
         return $http.get('/fase', {
             params: {
                 id: id
@@ -25,11 +25,12 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
             }
         });
     };
-    var atualizaFaseConcluida = function (id,model) {
-        return $http.put('/fase/concluida/'+id, model)
+    var atualizaFaseConcluida = function (id) {
+        return $http.put('/fase/' +id)
     }
-    var atualizaIdusuarioTreino = function (id,model) {
-        return $http.put('/treino/'+id, model)
+    var atualizaIdusuarioTreino = function (idUsuario,id) {
+        return $http.post('/usuario/'+idUsuario, id)
+
     }
    /* var buscaIdUsuario = function (token) {
         return $http.get('/usuario',token)
@@ -41,18 +42,40 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
             }
         });
     }
-    var atualizaIdUsuario = function () {
-        return $http.put('fase')
+    var atualizaIdUsuario = function (faseConcluida) {
+        return $http.put('fase',
+            {
+                params:{
+                    faseConcluida :faseConcluida
+                }
+            })
     }
+    var fotoFase = function (id) {
+        return $http.get('fase/recupera',
+            {
+                params: {
+                    id: id
+                }
+            });
+    }
+    var dadosCadastro = function (id) {
+        return $http.get('/cadastro-usuario',{
+            params: {
+                id: id,
+            }
+        });
+    };
+
     return {
         carregarTreinos: carregaTreinos,
-        carregaFases: carregaFases,
+        carregaFasesTreino: carregaFasesTreino,
         carregaExercicios :carregaExercicios,
         carregaIdTreino : carregaIdTreino,
         atualizaFaseConcluida : atualizaFaseConcluida,
         atualizaIdusuarioTreino : atualizaIdusuarioTreino,
-      //  buscaIdUsuario : buscaIdUsuario,
         buscaTreinosFeitos : buscaTreinosFeitos,
-        atualizaIdUsuario : atualizaIdUsuario
+        atualizaIdUsuario : atualizaIdUsuario,
+        fotoFase :fotoFase,
+        dadosCadastro: dadosCadastro
     }
 });

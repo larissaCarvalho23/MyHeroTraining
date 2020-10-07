@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ExercicioRepository extends JpaRepository<Exercicio,Integer> {
-    Page<Exercicio> findByFaseId(Integer id, Pageable paginacao);
+    Page<Exercicio> findByTreinoId(Integer id, Pageable paginacao);
 
 
     }

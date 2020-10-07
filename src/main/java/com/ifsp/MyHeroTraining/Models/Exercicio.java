@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Exercicio {
@@ -64,8 +65,6 @@ public class Exercicio {
     }
 
    // @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @ManyToOne
-    private Fase fase;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -75,4 +74,17 @@ public class Exercicio {
     private String parteTrablhada;
     private int qntd_pontos;
     private String dificuldade;
+
+    public String getQntd() {
+        return qntd;
+    }
+
+    public void setQntd(String qntd) {
+        this.qntd = qntd;
+    }
+
+    private String qntd;
+
+    @ManyToMany
+    private List<Treino> treino;
 }

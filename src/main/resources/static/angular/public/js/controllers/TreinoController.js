@@ -1,7 +1,7 @@
 angular.module('myHeroTraining').controller('TreinoController', function ($scope, $routeParams, TreinoService, $location) {
     $scope.model = {}
     $scope.fotos = [
-        {url: 'https://i0.statig.com.br/bancodeimagens/54/ab/3d/54ab3dww9e6ktcnafkfdp4294.jpg'}];
+        {url: 'https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_960_720.jpg'}];
 
     $scope.fotoP = [
         {
@@ -19,13 +19,17 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
     var id = $routeParams.id;
     var conlusao;
     var exibeBotao = 1;
-    var idTreino;
-    //tirar do set
-    var idUsuario =1;
+    var idFase;
     var faseTerminadas = [];
-    var treinosRealizados=[];
+    var treinosRealizados = [];
     var liberarProxFase;
     var idFase;
+    var quantidadeFases;
+    var liberarTodasFases;
+    var primeirafase = [];
+    var liberar;
+
+    var IdUsuario = sessionStorage.getItem('id');
 
     $scope.desabilita = function () {
         return false;
@@ -44,6 +48,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
             //não exibe mais a opçao de inicio
             exibeBotao = 0;
             exericioPaginacao(id, pag, qtd)
+            liberar = true;
         });
     }
     //exbibe botão de iniciar
@@ -62,7 +67,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
     /*var recuperaIdUsuario = function () {
         var token = sessionStorage.getItem("Bearer");
         TreinoService.buscaIdusuario(1).success(function (data) {
-            //passar aqui na data
+            //passar aqui na  data
             idUsuario = data;
         });
     }*/
@@ -85,6 +90,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
             exericioPaginacao(id, pag, qtd)
             pagina += 1;
         });
+
     }
     var exericioPaginacao = function (id, pagina, qnt) {
         TreinoService.carregaExercicios(id, pagina, qnt).success(function (data) {
@@ -92,10 +98,10 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
         });
     }
     var fasesTreinos = function () {
-        TreinoService.carregaFases(id).success(function (data) {
+        TreinoService.carregaFasesTreino(id).success(function (data) {
             $scope.fases = data;
-            //fase === arraydetrue
-
+            quantidadeFases = data.length;
+            primeirafase = data[0];
         });
     }
 
@@ -115,16 +121,11 @@ carrega()
     //falta salvar id na tabela
     //true ?Ok
     var buscaTreinosFeito = function () {
-        TreinoService.buscaTreinosFeitos(1).success(function (data) {
+        TreinoService.buscaTreinosFeitos(IdUsuario).success(function (data) {
             for (var j = 0; j < data.length; j++) {
-                treinosRealizados.push(data[j].id)
-                TreinoService.carregaFases(treinosRealizados).success(function (data) {
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].faseConcluida === true)
-                            faseTerminadas.push(data[i].id)
-                    }
-                });
+                faseTerminadas.push(data[j].id)
             }
+
         });
     }
     buscaTreinosFeito();
@@ -135,18 +136,13 @@ carrega()
     }
     $scope.item = function (valor) {
         for (var i = 0; i <= faseTerminadas.length; i++) {
-
             if (faseTerminadas.indexOf(valor) != -1) {
                 return true;
             }
         }
-        //valor igual a
-        //BUDCAR NO BANCO TODOS OS VALORES IGUAL A TRUE
-        //busca o primeiro ID daquele liest de fases prga array --liberar sempre a fase 1
-        //faseTerminadas.indexOf(primeiro_fase === -1)//não tenho a primeira fase feita
-        //return false
 
     };
+<<<<<<< HEAD
     $scope.desabilita = function (valor) {
         for (var i = 0; i <= faseTerminadas.length; i++) {
 
@@ -157,34 +153,60 @@ carrega()
             if(faseTerminadas === true && valor===idFase){
                    return false;
             }
+=======
+
+    //logica de habilitar e desabilitar fases
+    $scope.desabilita = function (valor) {
+        var ProximaFase = faseTerminadas[faseTerminadas.length - 1]
+        if (valor === 1 && faseTerminadas.indexOf(valor) === -1 || valor === primeirafase && faseTerminadas.indexOf(valor) === -1 || faseTerminadas.indexOf(valor) === -1 && valor === parseInt(ProximaFase) + parseInt(1) && faseTerminadas.indexOf(valor) === -1
+            || quantidadeFases === valor && liberarTodasFases === true) {
+            return false;
+        } else {
+            faseTerminadas.indexOf(valor) != -1 || faseTerminadas.indexOf(valor) === -1
+            return true;
+>>>>>>> criacao-fluxo-treinos
         }
     }
     var atualizaFaseBanco = function (idFase) {
-
-        var faseConcluida = 'true';
-        TreinoService.atualizaFaseConcluida(idFase, faseConcluida).success(function (data) {
+        TreinoService.atualizaFaseConcluida(idFase).success(function (data) {
         });
     }
     var atualizaIdusuarioTreino = function () {
-        TreinoService.atualizaIdusuarioTreino(idUsuario).success(function (data) {
+
+        var idFaseAtual = {
+            id: id
+        }
+        TreinoService.atualizaIdusuarioTreino(IdUsuario, idFaseAtual).success(function (data) {
+        });
+    }
+    $scope.finalizar = function (valor) {
+        atualizaFaseBanco(id);
+        atualizaIdusuarioTreino(valor);
+        liberarProxFase = true;
+        idFase = parseInt(id) + parseInt(1);
+        if (quantidadeFases === id) {
+            liberarTodasFases = true;
+        }
+        TreinoService.carregaIdTreino(id).success(function (data) {
+            idFase = data[0].id;
+            $location.path('treinos/' + idFase).reload();
+        });
+    }
+    var carrega = function () {
+        TreinoService.fotoFase(id).success(function (data) {
+            $scope.treinos = data;
+        });
+    };
+
+    var carregaDdos = function () {
+        TreinoService.dadosCadastro(IdUsuario).success(function (data) {
+            $scope.infos = data;
 
         });
-    }
-    $scope.finalizar = function () {
-        //buscar id treino para passar no laction path-ok
-        //UPDATE no banco o campo true;
-        //UPDATE COM ID DO USUARIO
-        //select campo x where id seja igual ao id do usuario
-        atualizaFaseBanco(id);
-        atualizaIdusuarioTreino();
-        liberarProxFase=true;
-        idFase = id+1;
-        //atualiza id funcionario
-            TreinoService.carregaIdTreino(id).success(function (data) {
-            idTreino = data[0].treino.id;
-            $location.path('treinos/' + idTreino);
-        });
-    }
+    };
+
+    carrega();
     exerciciosFase();
     fasesTreinos();
+    carregaDdos();
 });
