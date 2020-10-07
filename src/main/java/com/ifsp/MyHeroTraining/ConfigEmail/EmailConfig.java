@@ -1,9 +1,7 @@
 package com.ifsp.MyHeroTraining.ConfigEmail;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
@@ -17,8 +15,8 @@ public class EmailConfig {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("myherotraining@gmail.com");
-        mailSender.setPassword("sp3013375");
+        mailSender.setUsername("mhtrainingp1@gmail.com");
+        mailSender.setPassword("Teste1234%");
         Properties props = new Properties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", true);
