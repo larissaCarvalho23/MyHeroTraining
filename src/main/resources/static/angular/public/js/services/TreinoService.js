@@ -32,9 +32,9 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
         return $http.post('/usuario/'+idUsuario, id)
 
     }
-   /* var buscaIdUsuario = function (token) {
-        return $http.get('/usuario',token)
-    }*/
+    /* var buscaIdUsuario = function (token) {
+         return $http.get('/usuario',token)
+     }*/
     var buscaTreinosFeitos = function (IdUsuario) {
         return $http.get('/treinos/recupera', {
             params:{
