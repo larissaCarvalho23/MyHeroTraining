@@ -35,6 +35,11 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         $routeProvider.when('/treino/inicio/:id', {
             templateUrl: 'angular/public/view/inicioTreino.html',
             controller: 'TreinoController'
+            	
+       });
+       $routeProvider.when('/descricaoTreino/', {
+       templateUrl: 'angular/public/view/descricaoTreino.html'
+            
 
         });
         $routeProvider.when('/treino/inicio/execucao', {
