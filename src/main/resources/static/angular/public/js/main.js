@@ -19,36 +19,45 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         });
 
     $routeProvider.when('/confirm-reset', {
-        templateUrl: 'angular/public/view/confirmReset.html',
-        controller: 'cadastroController'
+        templateUrl: 'angular/public/view/trocar-senha/confirmReset.html',
+        controller: 'recoverPassword'
     });
 
-    $routeProvider.when('/success-reset', {
-        templateUrl: 'angular/public/view/successForgotPassword.html'
+    $routeProvider.when('/confirm-reset-success', {
+        templateUrl: 'angular/public/view/trocar-senha/tr.html'
     });
 
-        $routeProvider.when('/forgot-password', {
-            templateUrl: 'angular/public/view/forgotPassword.html',
-            controller: 'recoverPassword'
+    $routeProvider.when('/confirm-reset-fail', {
+        templateUrl: 'angular/public/view/trocar-senha/successForgotPassword.html'
+    });
 
-        });
+
+    $routeProvider.when('/forgot-password', {
+        templateUrl: 'angular/public/view/trocar-senha/forgotPassword.html',
+        controller: 'recoverPassword'
+    });
+
+    $routeProvider.when('/success-send-reset', {
+        templateUrl: 'angular/public/view/trocar-senha/successForgotPassword.html'
+    });
+
         $routeProvider.when('/login', {
             templateUrl: 'angular/public/view/login.html',
             controller: 'login-controller'
 
         });
         $routeProvider.when('/account-verified', {
-        templateUrl: 'angular/public/view/accountVerified.html',
+        templateUrl: 'angular/public/view/confirmar-email/accountVerified.html',
 
          });
 
         $routeProvider.when('/account-verified-error', {
-            templateUrl: 'angular/public/view/accountVerifiedError.html',
+            templateUrl: 'angular/public/view/confirmar-email/accountVerifiedError.html',
 
         });
 
         $routeProvider.when('/confirm-account', {
-            templateUrl: 'angular/public/view/accountVerified.html',
+            templateUrl: 'angular/public/view/confirmar-email/accountVerified.html',
             controller: 'confirmEmail'
         });
 

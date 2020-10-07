@@ -21,12 +21,17 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
         console.log()
         return $http.post('/forgot-password', email);
     }
+    var trocar = function(model){
+        console.log(model)
+        return $http.post('/confirm-reset', model);
+    }
 
     return {
         incluir: incluir,
         email: email,
         usuario :usuario,
         confirmar: confirmar,
-        recuperar: recuperar
+        recuperar: recuperar,
+        trocar: trocar
     }
 });

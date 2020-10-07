@@ -27,7 +27,8 @@ public class UsuarioController {
     public void CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
         Usuario usuario = new Usuario();
         usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
-        usuario.setEmail(usuarioForms.getEmail());
+        usuario.setEmailUsuario(usuarioForms.getEmail());
+        usuario.setEnable(false);
         usuarioRepository.save(usuario);
     }
 }

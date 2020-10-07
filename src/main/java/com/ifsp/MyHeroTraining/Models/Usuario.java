@@ -7,28 +7,23 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 @Entity
-@Table(name = "usuario")
+@Table(name ="usuario")
 public class Usuario implements UserDetails {
-
-    private static final long serialVersionUID = 1L;
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private static final long seriaVersionUID = 1L;
+
     private String nome;
     private String email;
     private String senha;
-
+    private Boolean isEnable;
+    @ManyToOne
+    private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis = new ArrayList<>();
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private List<Perfil> perfils = new ArrayList<>();
+    @OneToMany
+    private List<Treino> treinos = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -38,11 +33,19 @@ public class Usuario implements UserDetails {
         this.nome = nome;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmailUsuario(String email) {
         this.email = email;
     }
 
@@ -54,10 +57,9 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.perfis;
+        return this.perfils;
     }
 
     @Override
@@ -90,4 +92,19 @@ public class Usuario implements UserDetails {
         return false;
     }
 
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
+    }
+
+    public Boolean getEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(Boolean enable) {
+        isEnable = enable;
+    }
 }
