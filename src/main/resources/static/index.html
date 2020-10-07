@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
     <script src="angular/public/js/lib/angular.min.js"></script>
     <link href="angular/public/css/bootstrap.min.css"></link>
@@ -35,9 +40,39 @@
 <body>
 <a href="#/umdois"></a>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-secondary flex-md-nowrap p-3 px-md-3 mb-3 shadow"
+    <style>
+    	body{
+    		background-color: #F0F0F0;
+    	}
+        .nav-link {
+            color: #fff;
+        }
+        .navbar{
+        	background-color: #CD3F3F;
+        }
+        .navbar-brand{
+        	color: #fff;
+        }
+        a:hover{
+        	color: #A90505;
+        }
+        .final {
+			color: #A90505;
+		}
+		.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+			background-color: #CD3F3F;
+			color: #fff;
+		}
+		.logo-small {
+		    color: #A90505;
+		    font-size: 50px;
+		  }
+    </style>
+    
+    <nav class="navbar navbar-expand-md flex-md-nowrap p-3 px-md-3 mb-3 shadow"
          ng-controller="HomeController">
-
+       
+       	<a class="brand"><img src="angular/public/imagem/logo.png" /></a>
         <a href="#/principal" class="navbar-brand" ng-show="exibirSemLogin()" title="home">MyHeroTraining</a>
         <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining</a>
         </dvi>
@@ -72,12 +107,6 @@
             </div>
         </div>
     </nav>
-
-    <style>
-        .nav-link {
-            color: #3c3c3c;
-        }
-    </style>
 
     <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibircomLogin()">
         <li class="nav-item">
