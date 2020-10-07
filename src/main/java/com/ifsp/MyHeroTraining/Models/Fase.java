@@ -64,9 +64,6 @@ public class Fase {
         this.url = url;
     }
 
-<<<<<<< HEAD
-    public Treino getTreino() {
-=======
     private String url;
 
     private String nome;
@@ -83,17 +80,11 @@ public class Fase {
     private String intensidade;
 
     public List<Treino> getTreino() {
->>>>>>> criacao-fluxo-treinos
         return treino;
     }
     public void setTreino(List<Treino> treino) {
         this.treino = treino;
     }
-<<<<<<< HEAD
-    @ManyToOne
-    private Treino treino;
-}
-=======
     @ManyToMany
     private List<Treino> treino;
 
@@ -108,4 +99,3 @@ public class Fase {
     @OneToMany
     private List<Usuario>usuarios = new ArrayList<>();
 }
->>>>>>> criacao-fluxo-treinos

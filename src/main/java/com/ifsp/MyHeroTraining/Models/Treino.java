@@ -91,11 +91,11 @@ public class Treino {
         this.url = url;
     }
 
-<<<<<<< HEAD
+
     @ManyToOne
     private Usuario usuario;
-}
-=======
+
+
     private String url;
 
     @ManyToMany
@@ -106,4 +106,5 @@ public class Treino {
     private List<Exercicio> exercicios;
 
 }
->>>>>>> criacao-fluxo-treinos
+
+

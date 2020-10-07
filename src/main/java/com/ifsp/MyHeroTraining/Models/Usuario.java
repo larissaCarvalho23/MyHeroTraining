@@ -106,7 +106,7 @@ public class Usuario implements UserDetails {
     }
 
     @OneToMany
-   private List<Fase> fase = new ArrayList<>();
+    private List<Fase> fase = new ArrayList<>();
 
     public List<Treino> getTreinos() {
         return treinos;
@@ -116,13 +116,7 @@ public class Usuario implements UserDetails {
         this.treinos = treinos;
     }
 
-<<<<<<< HEAD
-    @OneToMany
-    private List<Treino> treinos = new ArrayList<>();
-}
-=======
     @ManyToMany
     private List<Treino>treinos = new ArrayList<>();
 
 }
->>>>>>> criacao-fluxo-treinos

@@ -2,15 +2,8 @@ package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
 import com.ifsp.MyHeroTraining.Forms.CadastroUsuarioForms;
-<<<<<<< HEAD
-import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.Models.Treino;
-import com.ifsp.MyHeroTraining.Models.Usuario;
-=======
-import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.Treino;
->>>>>>> criacao-fluxo-treinos
 import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,29 +24,20 @@ import java.util.Optional;
 public class CadastroUsuarioController {
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
+    private UsuarioRepository usuarioRepository;
+
     @GetMapping
-<<<<<<< HEAD
-  /*  public List<CadastroUsuario> listaUsuario(@RequestParam String email) {
-        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
-        return cadastroUsuarios;
-<<<<<<< HEAD
-=======
-=======
     public List<CadastroUsuario> listaUsuario(@RequestParam int id) {
->>>>>>> criacao-fluxo-treinos
 
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
         return cadastroUsuarios;
     }
-<<<<<<< HEAD
-=======
 
     @GetMapping("/id")
     public List<CadastroUsuario> listaUsuarioId (@RequestParam String email) {
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
         return cadastroUsuarios;
     }
->>>>>>> criacao-fluxo-treinos
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 
@@ -64,17 +48,12 @@ public class CadastroUsuarioController {
             //caso já exista o email cadastrado é retornado a bad request para o cliente
             return ResponseEntity.badRequest().build();
         }
-<<<<<<< HEAD
-        cadastraUsuarioRepository.save(cadastroUsuario);
-        URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
-        return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));
-
-=======
         //falta salvar tbm no usuario repository para que possa ser feito o login com autenticacao
         cadastraUsuarioRepository.save(cadastroUsuario);
 
         URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
         return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));
->>>>>>> criacao-fluxo-treinos
     }
 }
+
+

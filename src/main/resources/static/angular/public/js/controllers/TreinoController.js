@@ -104,19 +104,6 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
             primeirafase = data[0];
         });
     }
-
-    var carrega = function () {
-        var pagina = 0;
-        var qnt = 1;
-        alert("ddd")
-    myHeroTraining.carregarTreinos(pagina, qnt,idTreino).success(function (data){
-        $scope.treinos = data.content;
-        console.log(data.content);
-
-
-        });
-    }
-carrega()
     //falta pegar Id do usuario do banco e passar no parametro, pelo token
     //falta salvar id na tabela
     //true ?Ok
@@ -142,18 +129,6 @@ carrega()
         }
 
     };
-<<<<<<< HEAD
-    $scope.desabilita = function (valor) {
-        for (var i = 0; i <= faseTerminadas.length; i++) {
-
-            if (faseTerminadas.indexOf(valor) != -1 /*fase[0]===1*/ ) {
-                return true;
-            }
-          //liberar proxima fase pode ser um ou com a proxima condição
-            if(faseTerminadas === true && valor===idFase){
-                   return false;
-            }
-=======
 
     //logica de habilitar e desabilitar fases
     $scope.desabilita = function (valor) {
@@ -164,7 +139,6 @@ carrega()
         } else {
             faseTerminadas.indexOf(valor) != -1 || faseTerminadas.indexOf(valor) === -1
             return true;
->>>>>>> criacao-fluxo-treinos
         }
     }
     var atualizaFaseBanco = function (idFase) {

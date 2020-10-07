@@ -13,16 +13,9 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
     var usuario = function (model) {
         return $http.post('/usuario', model);
     }
-    var usuario = function (model) {
-        return $http.post('http://localhost:8080/usuario', model);
-    }
     return {
         incluir: incluir,
         email: email,
-<<<<<<< HEAD
-        usuario :usuario
-=======
         usuario: usuario
->>>>>>> criacao-fluxo-treinos
     }
 });
