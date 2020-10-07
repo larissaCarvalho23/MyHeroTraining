@@ -1,29 +1,32 @@
 package com.ifsp.MyHeroTraining.Models;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @Entity
-@Table(name ="usuario")
 public class Usuario implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private static final long seriaVersionUID = 1L;
-
     private String nome;
     private String email;
     private String senha;
     private Boolean isEnable;
+    private String token;
     @ManyToOne
     private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfils = new ArrayList<>();
     @OneToMany
     private List<Treino> treinos = new ArrayList<>();
+    @OneToMany
+    private List<Fase> fase = new ArrayList<>();
+
+
 
     public String getNome() {
         return nome;
@@ -57,11 +60,18 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.perfils;
     }
-
     @Override
     public String getPassword() {
         return this.senha;
@@ -100,6 +110,14 @@ public class Usuario implements UserDetails {
         this.treinos = treinos;
     }
 
+    public List<Fase> getFase() {
+        return fase;
+    }
+
+    public void setFase(List<Fase> fase) {
+        this.fase = fase;
+    }
+
     public Boolean getEnable() {
         return isEnable;
     }
@@ -107,4 +125,5 @@ public class Usuario implements UserDetails {
     public void setEnable(Boolean enable) {
         isEnable = enable;
     }
+
 }

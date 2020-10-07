@@ -29,6 +29,7 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
     return {
         incluir: incluir,
         email: email,
+        usuario: usuario
         usuario :usuario,
         confirmar: confirmar,
         recuperar: recuperar,

@@ -12,34 +12,21 @@ $scope.model = {
           $location.path('/');
           }).error(function (data,status) {
                 alert("Email já cadastrado!");
-            $route.reload();
-      });
+                $route.reload();
+            });
             //fazer tratamento de erro caso não retorno com sucess
-      }
-      else if ($scope.formulario.$invalid) {
-          alert("Dados inválidos");
-      }
+        }
+
+        else if ($scope.formulario.$invalid) {
+            alert("Dados inválidos");
+        }
     };
-        var enviarEmail = function () {
+    var enviarEmail = function () {
         cadastroService.email($scope.model.email).success(function (data) {
         });
-     }
-     var usuarioCadastro = function () {
+    }
+    var usuarioCadastro = function () {
         cadastroService.usuario($scope.model)
 
-     }
-     usuarioCadastro();
-
-
-  $(document).ready(function(){
-  $('#pp').mask('000.00');
- 
- });
-
- $(document).ready(function(){
-  $('#pap').mask('0.00');
- 
- });
+    }
 });
-
- 

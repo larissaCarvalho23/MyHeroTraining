@@ -1,10 +1,10 @@
 package com.ifsp.MyHeroTraining.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Exercicio {
@@ -64,6 +64,8 @@ public class Exercicio {
         this.dificuldade = dificuldade;
     }
 
+   // @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
@@ -72,4 +74,17 @@ public class Exercicio {
     private String parteTrablhada;
     private int qntd_pontos;
     private String dificuldade;
+
+    public String getQntd() {
+        return qntd;
+    }
+
+    public void setQntd(String qntd) {
+        this.qntd = qntd;
+    }
+
+    private String qntd;
+
+    @ManyToMany
+    private List<Treino> treino;
 }

@@ -1,14 +1,25 @@
 package com.ifsp.MyHeroTraining.Forms;
 
-import com.ifsp.MyHeroTraining.Models.Perfil;
+import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Usuario;
+import com.ifsp.MyHeroTraining.repository.FaseRepository;
+import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import java.util.List;
+import javax.validation.constraints.NotNull;
 
 public class UsuarioForms {
-    private String email;
-    private String senha;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public UsernamePasswordAuthenticationToken converter(){
+        return new UsernamePasswordAuthenticationToken(email,senha);
+    }
 
     public String getEmail() {
         return email;
@@ -18,16 +29,15 @@ public class UsuarioForms {
         return senha;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    private String email;
+    private  String senha;
+
+    public String getToken() {
+        return token;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setToken(String token) {
+        this.token = token;
     }
-
-    public UsernamePasswordAuthenticationToken converter() {
-        return new UsernamePasswordAuthenticationToken(email, senha);
-    }
-
+    private  String token;
 }
