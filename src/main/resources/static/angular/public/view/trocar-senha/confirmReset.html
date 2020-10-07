@@ -10,30 +10,55 @@
                             <h3><i class="fa fa-lock fa-4x"></i></h3>
                             <h2 class="text-center">Troque sua senha.</h2>
                             <div class="panel-body">
-                                <form role="form" autocomplete="on" class="form" method="post" ng-submit="trocarSenha()">
+                                <form role="form" autocomplete="on" class="form" method="post"
+                                      ng-submit="trocarSenha()">
                                     <div class="form-group">
                                         <div class="row justify-content-center">
-                                            <div class="col-md-8" >
-                                                <label>Nova Senha</label>
-                                                <input type="password"  class="form-control" name="senha1" ng-model="model.senha"  placeholder="Senha máximo 6 caracteres " minlength="6" maxlength="18" required>
-                                                <span ng-show="formulario.$submitted && formulario.senha1.$error.required " class="form-control alert-danger">
-                                                     senha obrigatório
-                                                </span>
-                                                <span ng-show="formulario.senha1.$error.minlength && formulario.$submitted " class="form-control alert-danger">
-                                                     senha invÃ¡lida no mÃ­nimo 6 caracteres e no mÃ¡ximo 18 caracteres
-                                                </span>
-                                                <label >Confirme a nova senha</label>
-                                                <input type="password" class="form-control" name="senha2" ng-model="model.senhac"  placeholder="Senha" ng-pattern="model.senha"  minlength="6" maxlength="18"  required>
-                                                <span ng-show="formulario.$submitted && formulario.senha2.$error.required" class="form-control alert-danger">
-                                                    confirme a senha
-                                                </span>
-                                                <span ng-show="formulario.senha2.$error.minlength && formulario.$submitted " class="form-control alert-danger">
-                                                    senha invÃ¡lida no mÃ­nimo 6 caracteres e no mÃ¡ximo 18 caracteres
-                                                </span>
-                                                <span ng-show="formulario.senha2.$error.pattern" class="form-control alert-danger">
-                                                    senhas divergentes!
-                                                </span>
+                                            <div class="col-md-8">
+                                                <label>Senha</label>
+                                                <input type="password"
+                                                       class="form-control" name="senha1" id="oo" ng-model="model.senha"
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                                                       required>
+                                                <span ng-show="form.$submitted && form.senha1.$error.required "
+                                                      class="form-control alert-danger">
+                                                            Senha obrigatatória
+                                                    </span>
+
+                                                <span ng-show="form.$submitted && form.senha1.$error.pattern"
+                                                      class="form-control alert-danger">
+                                                            Senha não atende aos requisitos
+                                                    </span>
                                             </div>
+                                            <div class="col-md-8">
+                                                <label>Confirme a Senha</label>
+
+                                                <input type="password"
+                                                       class="form-control" name="senha2" id="vv"
+                                                       ng-model="model.senhac"
+                                                       ng-pattern="model.senha"
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                                                       required>
+
+                                                <span ng-show="form.$submitted && form.senha2.$error.required"
+                                                      class="form-control alert-danger">
+                                                            Confirme a senha
+                                                    </span>
+
+                                                <span ng-show="form.senha2.$error.pattern && form.$submitted "
+                                                      class="form-control alert-danger">
+                                                            Senha não atende aos requisitos
+                                                    </span>
+
+                                                <span ng-show="form.senha2.$error.pattern"
+                                                      class="form-control alert-danger">
+                                                            Senhas divergentes!
+                                                    </span>
+                                            </div>
+                                            <p style="font-size:11px; text-align:center"> *Mínimo de 8 e máximo de 18 de
+                                                caracteres com
+                                                letra maíscula e minuscula, 1 numeral e 1 caractere especial entre
+                                                ?=.*[!|@|#|$|%|^|&|*|(|)|-|_])</p>
                                         </div>
                                     </div>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Trocar senha</button>

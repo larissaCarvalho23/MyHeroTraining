@@ -24,11 +24,7 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
     });
 
     $routeProvider.when('/confirm-reset-success', {
-        templateUrl: 'angular/public/view/trocar-senha/tr.html'
-    });
-
-    $routeProvider.when('/confirm-reset-fail', {
-        templateUrl: 'angular/public/view/trocar-senha/successForgotPassword.html'
+        templateUrl: 'angular/public/view/trocar-senha/confirmResetSucess.html'
     });
 
 
@@ -85,6 +81,6 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         templateUrl: 'angular/public/view/descricaoTreino.html'
     });
 
-    $routeProvider.otherwise({redirectTo:'/home'});
+    $routeProvider.otherwise({redirectTo:'/principal'});
 
 });
