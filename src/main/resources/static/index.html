@@ -43,12 +43,16 @@
     <style>
     	body{
     		background-color: #F0F0F0;
+    		font: 400 15px Lato, sans-serif;
+  			line-height: 1.8;
+  			color: #818181;
     	}
         .nav-link {
             color: #fff;
         }
         .navbar{
         	background-color: #CD3F3F;
+        	font-family: Montserrat, sans-serif;
         }
         .navbar-brand{
         	color: #fff;
@@ -66,6 +70,10 @@
 		.logo-small {
 		    color: #A90505;
 		    font-size: 50px;
+		  }
+		  
+		  .rodape{
+		  	margin-top: 5%;
 		  }
     </style>
     
@@ -132,5 +140,27 @@
 </header>
 <ng-view>
 </ng-view>
+<footer class="container-fluid text-center rodape">
+    <div class="row">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="d-block mb-2">
+                <a class="brand"><img src="angular/public/imagem/logo_maior.png" /></a>
+            </svg>
+            <small class="d-block mb-3 text-muted">&copy; 2020</small>
+        </div>
+        <div class="col-12 col-md">
+            <h5>Links</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#/home">P&aacute;gina de Treinos</a></li>
+                <li><a class="text-muted" href="#/descricaoTreino">Explica&ccedil;&atilde;o dos Exerc&iacute;cios</a></li>
+                <li><a class="text-muted" href="#/login">Login</a></li>
+                <li><a class="text-muted" href="#/Cadastro">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+</footer>
 </body>
 </html>

@@ -1,16 +1,15 @@
 <style>
 .jumbotron {
-  background-color: #CD3F3F;
-  color: #ffffff;
+  background-color: #F0F0F0;
+  color: #CD3F3F;
   margin: 2%;
   image-size: 90%;
+  font-family: Montserrat, sans-serif;
  }
  
-
-  img{
+.imgTreino{
   	width: 100%;
   	align: center;
-  }
 }
 
 .container-fluid {
@@ -26,7 +25,7 @@
  }
  
  .border{
- 	margin: 2% #CD3F3F;
+ 	margin: 5%;
  }
  
 .carousel-control.right, .carousel-control.left {
@@ -53,9 +52,16 @@
 .item span {
   font-style: normal;
 }
-.h2, h2 {
+.h2, h2, .h1 {
     font-size: 30px;
     text-align: center;
+    color: #CD3F3F;
+}
+.beneficios{
+	font-size: 20px;
+}
+.como-aplicacao{
+	margin: 5%;
 }
 </style>
 
@@ -67,17 +73,14 @@
     </div>
     <div class="row text-center">
         <div class="rounded mx-auto d-block">
-            <img src="angular/public/imagem/home6.jpg" id="imgTreino" alt="" class="rounded mx-auto d-block">
-            </p>
+            <img src="angular/public/imagem/home6.jpg" id="imgTreino" alt="" class="rounded mx-auto d-block imgTreino">
         </div>
-            <br>
           <span class="border rounded">
             <h2 class="name">Crie uma rotina para praticar exercícios:</h2>
-            <p class="text-muted">Praticar exercícios físiscos regularmente pode ajudar em diversos aspectos da sua
+            <p class="text-muted beneficios">Praticar exercícios físiscos regularmente pode ajudar em diversos aspectos da sua
                 saúde,
                 reduz risco de hipertensão, doenças cardíacas, AVC, diabetes, câncer, depressão, reduz ansiedade e
                 estresse, melhora disposição.</p>
-            </br>
           </span>
     </div>
     <b>
@@ -111,16 +114,15 @@
         </section>
     </b>
     <div id="como-aplicacao">
-       <h2>Como usar:</h2>
+     <!--   <h2>Como usar:</h2>
 			<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-			  <!-- Indicators -->
+
 			  <ol class="carousel-indicators">
 			    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			    <li data-target="#myCarousel" data-slide-to="1"></li>
 			    <li data-target="#myCarousel" data-slide-to="2"></li>
 			  </ol>
 			
-			  <!-- Wrapper for slides -->
 			  <div class="carousel-inner" role="listbox">
 			    <div class="item active">
 			    <h4><b>1:</b> Cadastrando-se na aplicação você terá disponível treinos que começam no nível 0 iniciante.</h4>
@@ -133,7 +135,6 @@
 			    </div>
 			  </div>
 			
-			  <!-- Left and right controls -->
 			  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 			    <span class="sr-only">Previous</span>
@@ -142,58 +143,20 @@
 			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			    <span class="sr-only">Next</span>
 			  </a>
-			</div>
+			</div> -->
+			
+			<h2>Como usar:</h2>
+			<div class="row">
+			    <div class="col-sm-4" id="abdominal">
+			      <h4><b>1:</b></br>Cadastrando-se na aplicação você terá disponível treinos que começam no nível 0 iniciante.</h4>
+			    </div>
+			    <div class="col-sm-4" id="abdominalRemador">
+			      <h4><b>2:</b></br>Inicie os treinos, conforme você os realiza, ganha pontuação e libera mais treinos.</h4>
+			    </div>
+			    <div class="col-sm-4" id="agachaEleva">
+			      <h4><b>3:</b></br>Suba cada vez mais de nível e tenha acesso a treinos mais avançados.</h4>
+			    </div>
+			 </div>
     </div>
 
 </div>
-<footer class="container py-5">
-    <div class="row">
-        <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 class="d-block mb-2">
-                <a class="brand "><img src="angular/public/imagem/logo.png" /></a>
-            </svg>
-            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Cool stuff</a></li>
-                <li><a class="text-muted" href="#">Random feature</a></li>
-                <li><a class="text-muted" href="#">Team feature</a></li>
-                <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                <li><a class="text-muted" href="#">Another one</a></li>
-                <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Resource</a></li>
-                <li><a class="text-muted" href="#">Resource name</a></li>
-                <li><a class="text-muted" href="#">Another resource</a></li>
-                <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Nome</a></li>
-                <li><a class="text-muted" href="#">Empresa</a></li>
-                <li><a class="text-muted" href="#">teste</a></li>
-                <li><a class="text-muted" href="#">teste</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Team</a></li>
-                <li><a class="text-muted" href="#">Locations</a></li>
-                <li><a class="text-muted" href="#">Privacy</a></li>
-                <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-        </div>
-    </div>
-
-</footer>
