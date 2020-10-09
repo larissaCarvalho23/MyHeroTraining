@@ -14,8 +14,10 @@
     <script src="angular/public/js/services/cadastroUsuarioService.js"></script>
     <script src="angular/public/js/services/loginService.js"></script>
     <script src="angular/public/js/controllers/homeController.js"></script>
+    <script src="angular/public/js/controllers/recoverPassword.js"></script>
     <script src="angular/public/js/controllers/TreinoController.js"></script>
     <script src="angular/public/js/controllers/login-controller.js"></script>
+    <script src="angular/public/js/controllers/confirmEmailController.js"></script>
     <script src="angular/public/js/controllers/CadastroUsuarioController.js"></script>
     <script src="angular/public/js/lib/angular-route.min.js"></script>
 
@@ -31,18 +33,26 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<a href="#/umdois"></a>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-secondary flex-md-nowrap p-3 px-md-3 mb-3 shadow"
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"
          ng-controller="HomeController">
 
-        <a href="#/principal" class="navbar-brand" ng-show="exibirSemLogin()" title="home">MyHeroTraining</a>
-        <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining</a>
+        <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
+            <img src="angular/public/imagem/logo.png"> MyHeroTraining
+
+        </a>
+        <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
+            <img src="angular/public/imagem/logo.png">
+
+        </a>
         </dvi>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div class="collapse navbar-collapse my-2 my-sm-0" id="navbarCollapse">
             <ul class="navbar-nav mr-auto" ng-show="exibirSemLogin()">
                 <li class="nav-item active">
                     <a class="nav-link" href="#/login">Login <span class="sr-only">(current)</span></a>
@@ -91,12 +101,7 @@
 
     </ul>
 
-    <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
-        <li class="nav-item">
-            <a class="nav-link active" href="#/principal">Treinos Para você</a>
-        </li>
 
-    </ul>
 </header>
 <ng-view>
 </ng-view>

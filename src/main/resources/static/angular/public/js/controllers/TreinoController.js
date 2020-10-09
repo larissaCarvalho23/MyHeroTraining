@@ -14,7 +14,7 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
         {url: 'https://conteudo.imguol.com.br/c/entretenimento/a7/2016/05/30/homem-fazendo-flexao-1464620034199_v2_1920x1279.jpg'}
     ];
     $scope.foto = {
-        urlx: 'angular/public/imagem/Chega%20de%20desculpas_%20malhe%20fora%20da%20academia.gif'
+        urlx: 'https://veja.abril.com.br/wp-content/uploads/2018/06/saude-corrida-20160108-001.jpg'
     }
     var id = $routeParams.id;
     var conlusao;

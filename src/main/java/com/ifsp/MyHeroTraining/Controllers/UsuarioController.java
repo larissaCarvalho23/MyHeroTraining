@@ -21,22 +21,25 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private TreinoRepository treinoRepository;
+
     @GetMapping
-    public  List<Usuario> listaUsuario(@RequestParam Long id) {
+    public List<Usuario> listaUsuario(@RequestParam Long id) {
         List<Usuario> usuario = usuarioRepository.findById(id);
         return usuario;
     }
+
     @PostMapping
-    public void CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
+    public void CadastroUsuarioLogin(@RequestBody UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
         Usuario usuario = new Usuario();
         usuario.setSenha(new BCryptPasswordEncoder().encode(usuarioForms.getSenha()));
         usuario.setEmailUsuario(usuarioForms.getEmail());
         usuarioRepository.save(usuario);
     }
+
     @PostMapping("/{id}")
     public Treino UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms) {
-        Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository,treinoRepository);
+        Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository, treinoRepository);
         return treino;
     }
-
 }
+
