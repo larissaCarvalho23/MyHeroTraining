@@ -2,11 +2,7 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
 
     //  $locationProvider.html5Mode(true);
 
-    $routeProvider.when('/home', {
-        templateUrl: 'angular/public/view/home.html',
-        controller: 'HomeController',
 
-    });
     $routeProvider.when('/principal', {
         templateUrl: 'angular/public/view/principal.html',
         controller: 'TreinoController',
@@ -15,6 +11,12 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
     $routeProvider.when('/Cadastro', {
         templateUrl: 'angular/public/view/Cadastro.html',
         controller: 'cadastroController'
+
+    });
+
+    $routeProvider.when('/home', {
+        templateUrl: 'angular/public/view/home.html',
+        controller: 'HomeController',
 
     });
     $routeProvider.when('/login', {
@@ -46,6 +48,6 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         templateUrl: 'angular/public/view/descricaoTreino.html'
     });
 
-    $routeProvider.otherwise({redirectTo:'/home'});
+    $routeProvider.otherwise({redirectTo:'/principal'});
 
 });

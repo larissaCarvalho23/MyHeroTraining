@@ -34,6 +34,7 @@ angular.module('myHeroTraining').controller('HomeController',function ($scope, $
         $location.path('/login');
     }
 
+
     carrega()
     $scope.fotoPrincipal =
         {url:'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg'}
