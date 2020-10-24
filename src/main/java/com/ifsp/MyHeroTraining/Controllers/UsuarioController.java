@@ -36,10 +36,5 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
     }
 
-    @PostMapping("/{id}")
-    public Treino UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms) {
-        Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository, treinoRepository);
-        return treino;
-    }
 }
 

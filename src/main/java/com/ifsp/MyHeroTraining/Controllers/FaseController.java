@@ -2,8 +2,10 @@ package com.ifsp.MyHeroTraining.Controllers;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Forms.FaseAtualiza;
 import com.ifsp.MyHeroTraining.Models.Treino;
+import com.ifsp.MyHeroTraining.Models.Treino_Usuario;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
+import com.ifsp.MyHeroTraining.repository.TreinoUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
@@ -15,6 +17,8 @@ public class FaseController {
     private FaseRepository faseRepository;
     @Autowired
     private TreinoRepository treinoRepository;
+    @Autowired
+    private TreinoUsuarioRepository treinoUsuarioRepository;
     @GetMapping
     //("/fase")
     public List<Treino> listaTreinoFases(@RequestParam Integer id) {
@@ -33,14 +37,11 @@ public class FaseController {
         Treino treino = faseAtualiza.atualizar(id, treinoRepository);
         return treino;
     }
-
     @GetMapping("/recupera")
-    public List<Fase> recuperaFase(int id){
-        List<Fase> fase   = faseRepository.findById(id);
-        return fase;
-
+    public List<Treino_Usuario> recuperaFase(@RequestParam  int id){
+        List<Treino_Usuario> fases   = treinoUsuarioRepository.findByfase(id);
+        return fases;
         }
-
 }
 
 

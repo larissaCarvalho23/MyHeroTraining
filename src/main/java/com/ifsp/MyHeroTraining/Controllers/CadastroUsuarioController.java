@@ -28,7 +28,6 @@ public class CadastroUsuarioController {
 
     @GetMapping
     public List<CadastroUsuario> listaUsuario(@RequestParam int id) {
-
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
         return cadastroUsuarios;
     }
@@ -38,6 +37,7 @@ public class CadastroUsuarioController {
         List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
         return cadastroUsuarios;
     }
+
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 

@@ -90,11 +90,8 @@ public class Treino {
     public void setUrl(String url) {
         this.url = url;
     }
-
-
     @ManyToOne
     private Usuario usuario;
-
 
     private String url;
 

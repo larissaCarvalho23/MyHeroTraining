@@ -28,8 +28,8 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     var atualizaFaseConcluida = function (id) {
         return $http.put('/fase/' +id)
     }
-    var atualizaIdusuarioTreino = function (idUsuario,id) {
-        return $http.post('/usuario/'+idUsuario, id)
+    var atualizaIdusuarioTreino = function (model) {
+        return $http.post('/treinousuario',model)
 
     }
     /* var buscaIdUsuario = function (token) {

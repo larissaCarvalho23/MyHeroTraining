@@ -148,9 +148,10 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
     var atualizaIdusuarioTreino = function () {
 
         var idFaseAtual = {
-            id: id
+            id: id,
+            idUsuario: IdUsuario
         }
-        TreinoService.atualizaIdusuarioTreino(IdUsuario, idFaseAtual).success(function (data) {
+        TreinoService.atualizaIdusuarioTreino(idFaseAtual).success(function (data) {
         });
     }
     $scope.finalizar = function (valor) {

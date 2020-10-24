@@ -20,7 +20,6 @@ public class AtualizaUsuarioTreinoForms {
     }
 
     public int id;
-
     public Treino AtualizaId(int id, UsuarioRepository usuarioRepository, TreinoRepository treinoRepository) {
         Usuario usuario = usuarioRepository.getOne(id);
         String email = usuario.getEmail();
@@ -29,8 +28,6 @@ public class AtualizaUsuarioTreinoForms {
         treino.setUsuarios(usuarios);
         treinoRepository.save(treino);
         return treino;
-
-
     }
 
   /*  public Treino AtualizaIdTreino(int id, TreinoRepository treinoRepository, UsuarioRepository usuarioRepository) {
