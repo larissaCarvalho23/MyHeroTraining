@@ -127,7 +127,6 @@ angular.module('myHeroTraining').controller('TreinoController', function ($scope
                 return true;
             }
         }
-
     };
 
     //logica de habilitar e desabilitar fases
