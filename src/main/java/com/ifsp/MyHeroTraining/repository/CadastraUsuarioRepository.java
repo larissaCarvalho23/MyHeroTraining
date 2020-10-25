@@ -1,7 +1,6 @@
 package com.ifsp.MyHeroTraining.repository;
 
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import org.hibernate.sql.Select;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

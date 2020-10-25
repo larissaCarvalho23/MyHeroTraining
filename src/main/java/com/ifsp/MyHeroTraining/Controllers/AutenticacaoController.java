@@ -2,14 +2,11 @@ package com.ifsp.MyHeroTraining.Controllers;
 import com.ifsp.MyHeroTraining.DTO.TokenDto;
 import com.ifsp.MyHeroTraining.Forms.UsuarioAtualiza;
 import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
-import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.Security.TokenService;
-import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -51,5 +48,6 @@ public class AutenticacaoController {
         return usuario;
     }
 }
+
 
 

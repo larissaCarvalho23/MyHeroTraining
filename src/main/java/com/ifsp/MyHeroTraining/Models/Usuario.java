@@ -12,6 +12,21 @@ public class Usuario implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private static final long seriaVersionUID = 1L;
+    private String nome;
+    private String email;
+    private String senha;
+    private Boolean isEnable;
+    private String token;
+    @ManyToOne
+    private Treino treino;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfils = new ArrayList<>();
+    @OneToMany
+    private List<Treino> treinos = new ArrayList<>();
+    @OneToMany
+    private List<Fase> fase = new ArrayList<>();
+
+
 
     public String getNome() {
         return nome;
@@ -20,8 +35,6 @@ public class Usuario implements UserDetails {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    private String nome;
 
     public int getId() {
         return id;
@@ -55,14 +68,6 @@ public class Usuario implements UserDetails {
         this.token = token;
     }
 
-    private String token;
-
-    private String email;
-    private String senha;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfils = new ArrayList<>();
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.perfils;
@@ -94,7 +99,15 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
+    }
+
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
     }
 
     public List<Fase> getFase() {
@@ -105,18 +118,12 @@ public class Usuario implements UserDetails {
         this.fase = fase;
     }
 
-    @OneToMany
-    private List<Fase> fase = new ArrayList<>();
-
-    public List<Treino> getTreinos() {
-        return treinos;
+    public Boolean getEnable() {
+        return isEnable;
     }
 
-    public void setTreinos(List<Treino> treinos) {
-        this.treinos = treinos;
+    public void setEnable(Boolean enable) {
+        isEnable = enable;
     }
-
-    @ManyToMany
-    private List<Treino>treinos = new ArrayList<>();
 
 }

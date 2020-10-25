@@ -1,19 +1,18 @@
 package com.ifsp.MyHeroTraining.Forms;
 
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.EmailUsuario;
-import com.ifsp.MyHeroTraining.Models.Usuario;
-import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class CadastroUsuarioForms {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @NotNull @NotEmpty
     private String nome;
     @Column(unique = true)
@@ -25,6 +24,7 @@ public class CadastroUsuarioForms {
     private String altura;
     private String contato;
     private String contato2;
+    private Boolean isEnable;
 
 
      public String getNome() {
@@ -44,7 +44,7 @@ public class CadastroUsuarioForms {
     }
 
     public String getSenha() {
-        return senha;
+        return senha;//criptografando senha
     }
 
     public void setSenha(String senha) {
@@ -52,7 +52,7 @@ public class CadastroUsuarioForms {
     }
 
     public String getSenhac() {
-        return senhac;
+        return senhac;//criptografando senha
     }
 
     public void setSenhac(String senhac) {
@@ -99,8 +99,10 @@ public class CadastroUsuarioForms {
         this.contato2 = contato2;
     }
 
+
+
     public CadastroUsuario converter(){
-        return new CadastroUsuario( nome, email,  senha, senhac, nascimento, peso, altura,contato, contato2);
+        return new CadastroUsuario( nome, email,  senha, senhac, nascimento, peso, altura, contato, contato2, isEnable);
     }
 
 

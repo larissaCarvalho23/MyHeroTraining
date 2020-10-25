@@ -14,6 +14,7 @@ module.exports  = function(app) {
 
     app.get('/v1/grupos', api.listaGrupos)
     app.get('/v1/fotos/grupo/:grupoId', api.listaPorGrupo);
+
         
 
     // habilitando HTML5MODE

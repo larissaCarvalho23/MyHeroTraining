@@ -17,11 +17,46 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         controller: 'cadastroController'
 
     });
+
+    $routeProvider.when('/confirm-reset', {
+        templateUrl: 'angular/public/view/trocar-senha/confirmReset.html',
+        controller: 'recoverPassword'
+    });
+
+    $routeProvider.when('/confirm-reset-success', {
+        templateUrl: 'angular/public/view/trocar-senha/confirmResetSucess.html'
+    });
+
+
+    $routeProvider.when('/forgot-password', {
+        templateUrl: 'angular/public/view/trocar-senha/forgotPassword.html',
+        controller: 'recoverPassword'
+    });
+
+    $routeProvider.when('/success-send-reset', {
+        templateUrl: 'angular/public/view/trocar-senha/successForgotPassword.html'
+    });
+
     $routeProvider.when('/login', {
         templateUrl: 'angular/public/view/login.html',
         controller: 'login-controller'
 
     });
+        $routeProvider.when('/account-verified', {
+        templateUrl: 'angular/public/view/confirmar-email/accountVerified.html',
+
+         });
+
+        $routeProvider.when('/account-verified-error', {
+            templateUrl: 'angular/public/view/confirmar-email/accountVerifiedError.html',
+
+        });
+
+        $routeProvider.when('/confirm-account', {
+            templateUrl: 'angular/public/view/confirmar-email/accountVerified.html',
+            controller: 'confirmEmail'
+        });
+
     $routeProvider.when('/dados_login', {
         templateUrl: 'angular/public/view/dadosLogin.html',
         controller: 'TreinoController'
@@ -46,6 +81,6 @@ angular.module('myHeroTraining', ['ngRoute']).config(function($routeProvider) {
         templateUrl: 'angular/public/view/descricaoTreino.html'
     });
 
-    $routeProvider.otherwise({redirectTo:'/home'});
+    $routeProvider.otherwise({redirectTo:'/principal'});
 
 });

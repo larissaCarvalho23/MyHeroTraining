@@ -31,7 +31,7 @@ public class CadastroUsuario {
         this.contato2 = contato2;
     }
 
-    public CadastroUsuario(String nome, String email, String senha, String senhac, String nascimento, String peso, String altura, String contato, String contato2) {
+    public CadastroUsuario(String nome, String email, String senha, String senhac, String nascimento, String peso, String altura, String contato, String contato2, Boolean isEnable) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
