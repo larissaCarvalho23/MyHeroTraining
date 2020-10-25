@@ -3,14 +3,15 @@
         margin: auto;
         padding-top: 2px;
     }
-
     #img-top {
         width: 100%;
         height: 100%;
     }
-
     #card {
         margin-top: 12px;
+    }
+    #btn2{
+        margin-right: 44px;
     }
 </style>
 <div class="container">
@@ -20,15 +21,19 @@
             <div class="card-body">
                 <div class="card-body">
                     <table class="table">
-                        <tbody>
+                        <tbody >
                         <tr ng-repeat="fase in fases">
-                            <td>
-                                <button type="button" class=" btn btn-link" ng-disabled="desabilita({{fase.id}})"><a
-                                        href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()">{{fase.nome}} </a>
+                            <td class="col-md-6">
+                                <button type="button" class=" btn" ng-disabled="desabilita({{fase.id}})">{{fase.nome}}
                                 </button>
                             </td>
-                            <td><input type="checkbox" class="form-check-input" ng-disabled="desabilita({{fase.id}})"
-                                       ng-checked="item({{fase.id}})"></td>
+                            <td>
+                                <button type="button" class= "btn btn-outline-primary" id="btn2" >
+                                    <a href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()" ng-disabled="desabilita({{fase.id}})">Iniciar</a>
+                                </button>
+                                <input type="checkbox" class="form-check-input" ng-disabled="desabilita({{fase.id}})" ng-checked="item({{fase.id}})">
+
+                            </td>
                         </tr>
                         </tbody>
                     </table>

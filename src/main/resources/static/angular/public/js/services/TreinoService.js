@@ -9,12 +9,11 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
             }
         });
     };
-    var carregaExercicios = function (id, pagina, qnt) {
+    var carregaExercicios = function (id) {
         return $http.get('/exercicio', {
             params: {
-                id: id,
-                pagina :pagina,
-                qnt :qnt
+                id: id
+
             }
         });
     };

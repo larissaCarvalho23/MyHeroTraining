@@ -10,5 +10,8 @@ import java.util.List;
 public interface ExercicioRepository extends JpaRepository<Exercicio,Integer> {
     Page<Exercicio> findByTreinoId(Integer id, Pageable paginacao);
 
+    List<Exercicio> findByTreinoId(Integer id);
+
+
 
     }

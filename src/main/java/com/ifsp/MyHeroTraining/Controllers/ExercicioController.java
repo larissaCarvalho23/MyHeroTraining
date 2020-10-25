@@ -1,3 +1,4 @@
+
 package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.Models.Exercicio;
@@ -20,7 +21,7 @@ public class ExercicioController {
     @Autowired
     private ExercicioRepository exercicioRepository;
     @GetMapping
-    public Page<Exercicio> listaExercicios(@RequestParam(required = false) Integer id, @RequestParam(required = false) Integer pagina, @RequestParam(required = false) Integer qnt) {
+   /* public Page<Exercicio> listaExercicios(@RequestParam(required = false) Integer id, @RequestParam(required = false) Integer pagina, @RequestParam(required = false) Integer qnt) {
         if (pagina == null && qnt == null) {
             pagina = 0;
             qnt = 3;
@@ -32,5 +33,9 @@ public class ExercicioController {
             Page<Exercicio> exercicios = exercicioRepository.findByTreinoId(id, paginacao);
             return exercicios;
         }
+    }*/
+    public List<Exercicio> carregaExercicio(@RequestParam int id){
+        List<Exercicio> exercicio = exercicioRepository.findByTreinoId(id);
+        return  exercicio;
     }
 }
